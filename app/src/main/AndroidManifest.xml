@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Universe">
-        <activity android:name=".MainActivity">
+        <activity android:name=".feature.tag.TagActivity"></activity>
+        <activity android:name=".feature.setting_profile.SettingProfile" />
+        <activity android:name=".feature.selected_profile.SelectedProfile" />
+        <activity android:name=".feature.my_profile.MyProfile" />
+        <activity android:name=".feature.matching_option.MatchingOption" />
+        <activity android:name=".feature.chatting_list.ChattingListActivity" />
+        <activity android:name=".feature.chatting_room.ChattingRoomActivity" />
+        <activity android:name=".feature.initializing_profile.InitializingProfileActivity" />
+        <activity android:name=".feature.like_list.LikeListActivity" />
+        <activity android:name=".feature.signup.SignupActivity" />
+        <activity android:name=".feature.login.LoginActivity" />
+        <activity android:name=".feature.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

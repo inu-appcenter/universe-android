@@ -1,12 +1,12 @@
-package org.inu.universe.feature.selected_profile
+package org.inu.universe.feature.matching_option
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import org.inu.universe.R
 
-class SelectedProfile : AppCompatActivity() {
+class MatchingOptionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_selected_profile)
+        setContentView(R.layout.activity_matching_option)
     }
 }

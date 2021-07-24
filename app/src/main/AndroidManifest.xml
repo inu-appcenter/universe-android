@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Universe">
         <activity android:name=".feature.tag.TagActivity"></activity>
-        <activity android:name=".feature.setting_profile.SettingProfile" />
-        <activity android:name=".feature.selected_profile.SelectedProfile" />
-        <activity android:name=".feature.my_profile.MyProfile" />
-        <activity android:name=".feature.matching_option.MatchingOption" />
+        <activity android:name=".feature.setting_profile.SettingProfileActivity" />
+        <activity android:name=".feature.selected_profile.SelectedProfileActivity" />
+        <activity android:name=".feature.my_profile.MyProfileActivity" />
+        <activity android:name=".feature.matching_option.MatchingOptionActivity" />
         <activity android:name=".feature.chatting_list.ChattingListActivity" />
         <activity android:name=".feature.chatting_room.ChattingRoomActivity" />
         <activity android:name=".feature.initializing_profile.InitializingProfileActivity" />

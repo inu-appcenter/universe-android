@@ -1,4 +1,6 @@
 package org.inu.universe.feature.login
 
-class LoginViewModel {
+import androidx.lifecycle.ViewModel
+
+class LoginViewModel : ViewModel() {
 }

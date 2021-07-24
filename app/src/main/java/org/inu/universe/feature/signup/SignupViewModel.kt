@@ -1,4 +1,6 @@
 package org.inu.universe.feature.signup
 
-class SignupViewModel {
+import androidx.lifecycle.ViewModel
+
+class SignupViewModel : ViewModel() {
 }

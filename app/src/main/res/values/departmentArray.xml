@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="department">
+        <item>학과</item>
+        <item>컴퓨터공학과</item>
+        <item>전자공학과</item>
+    </string-array>
+</resources>

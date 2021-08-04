@@ -1,17 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="org.inu.universe.feature.login.LoginViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.login.LoginActivity">
+
+        <ImageView
+            android:id="@+id/universe_Top_img"
+            android:layout_width="match_parent"
+            android:layout_height="490dp"
+            android:src="@drawable/loginbackground"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/loginuniverse"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/loginuniverse"
+            android:layout_marginBottom="130dp"
+            app:layout_constraintBottom_toBottomOf="@+id/universe_Top_img"
+            app:layout_constraintEnd_toEndOf="@+id/universe_Top_img"
+            app:layout_constraintStart_toStartOf="@+id/universe_Top_img"
+            app:layout_constraintTop_toTopOf="@+id/universe_Top_img" />
+
+        <ImageView
+            android:id="@+id/universe_title1"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:src="@drawable/logintitle"
+            android:layout_marginTop="50dp"
+            app:layout_constraintStart_toStartOf="@+id/loginuniverse"
+            app:layout_constraintTop_toBottomOf="@+id/loginuniverse"
+            app:layout_constraintEnd_toEndOf="@+id/loginuniverse"/>
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="30dp"
+            android:src="@drawable/title"
+            app:layout_constraintTop_toBottomOf="@+id/universe_title1"
+            app:layout_constraintStart_toStartOf="@+id/universe_Top_img"
+            app:layout_constraintEnd_toEndOf="@+id/universe_Top_img"/>
+
+        <ImageView
+            android:id="@+id/universe_Bottom_img"
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/loginbackgroundbottom" />
+
+        <EditText
+            android:id="@+id/email_et"
+            android:hint="이메일"
+            android:textSize="15sp"
+            android:textColor="#999999"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingStart="15dp"
+            app:layout_constraintStart_toStartOf="@+id/universe_Bottom_img"
+            app:layout_constraintTop_toTopOf="@+id/universe_Bottom_img"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/email_et"
+            />
+
+        <EditText
+            android:id="@+id/password_et"
+            android:hint="비밀번호"
+            android:textSize="15sp"
+            android:textColor="#999999"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:paddingStart="15dp"
+            app:layout_constraintStart_toStartOf="@+id/universe_Bottom_img"
+            app:layout_constraintTop_toBottomOf="@+id/email_et"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/email_et" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/login_btn"
+            android:text="로그인"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            app:layout_constraintStart_toStartOf="@+id/universe_Bottom_img"
+            app:layout_constraintTop_toBottomOf="@+id/password_et"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/loginbutton"/>
+
+        <TextView
+            android:id="@+id/loginMaintain_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="로그인 유지"
+            android:textColor="#808080"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="@+id/login_btn"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+
+        <CheckBox
+            android:id="@+id/login_checkBox"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:button="@drawable/logincheckbox"
+            android:layout_marginStart="5dp"
+            app:layout_constraintBottom_toBottomOf="@+id/loginMaintain_tv"
+            app:layout_constraintStart_toEndOf="@+id/loginMaintain_tv"
+            app:layout_constraintTop_toTopOf="@+id/loginMaintain_tv" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textColor="#808080"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@+id/login_btn"
+            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Universe">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".feature.tag.TagActivity"></activity>
         <activity android:name=".feature.setting_profile.SettingProfileActivity" />
         <activity android:name=".feature.selected_profile.SelectedProfileActivity" />

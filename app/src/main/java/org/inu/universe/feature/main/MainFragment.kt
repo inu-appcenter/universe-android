@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import org.inu.universe.R
@@ -23,6 +25,9 @@ class MainFragment : Fragment() {
         profiles?.adapter = ProfilesAdapter(
             arrayListOf(MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""))
         )
+
+        val snapHelper = LinearSnapHelper()
+        snapHelper.attachToRecyclerView(profiles)
 
         //binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //binding.lifecycleOwner = this

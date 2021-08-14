@@ -1,18 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="org.inu.universe.feature.initializing_profile.InitializingProfileViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature.initializing_profile.InitializingProfileActivity">
+        tools:context=".feature.setting_profile.SettingProfileActivity"
+        >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="프로필 설정"
+            android:textColor="#808080"
+            android:textSize="25sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="중복된 닉네임입니다."
+            android:layout_margin="10dp"
+            android:textColor="#FF732AFD"
+            app:layout_constraintBottom_toTopOf="@+id/nickName_et"
+            app:layout_constraintStart_toStartOf="@+id/nickName_et" />
+
+
+        <EditText
+            android:id="@+id/nickName_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/setting_profile_et"
+            android:hint="닉네임"
+            android:paddingStart="15dp"
+            android:textColorHint="#999999"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/age_et"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/setting_profile_et"
+            android:hint="나이"
+            android:paddingStart="15dp"
+            android:textColorHint="#999999"
+            app:layout_constraintStart_toStartOf="@+id/nickName_et"
+            app:layout_constraintTop_toBottomOf="@+id/nickName_et" />
+
+        <Spinner
+            android:id="@+id/gender_Spinner"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:entries="@array/gender"
+            android:spinnerMode="dropdown"
+            android:background="@drawable/setting_profile_et"
+            android:paddingStart="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/age_et"
+            app:layout_constraintEnd_toEndOf="@+id/nickName_et"
+            app:layout_constraintTop_toTopOf="@+id/age_et" />
+
+        <Spinner
+            android:id="@+id/department_Spinner"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:entries="@array/department"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/setting_profile_et"
+            android:paddingStart="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gender_Spinner" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/setting_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/settingprofilebutton"
+            android:text="완료"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/department_Spinner" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

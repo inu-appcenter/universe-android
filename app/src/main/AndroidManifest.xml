@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Universe">
-        <activity android:name=".feature.tag.TagActivity"></activity>
+        <activity android:name=".feature.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".feature.tag.TagActivity" />
         <activity android:name=".feature.setting_profile.SettingProfileActivity" />
         <activity android:name=".feature.selected_profile.SelectedProfileActivity" />
         <activity android:name=".feature.my_profile.MyProfileActivity" />
@@ -20,13 +26,7 @@
         <activity android:name=".feature.like_list.LikeListActivity" />
         <activity android:name=".feature.signup.SignupActivity" />
         <activity android:name=".feature.login.LoginActivity" />
-        <activity android:name=".feature.main.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".feature.main.MainActivity" />
     </application>
 
 </manifest>

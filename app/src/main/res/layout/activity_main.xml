@@ -9,31 +9,21 @@
     tools:context=".feature.main.MainActivity"
     android:background="@color/white">
 
-    <fragment
-        android:id="@+id/main_fragment"
-        android:name="org.inu.universe.feature.main.MainFragment"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/main_viewpager"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <!-- 탭 -->
 
-    <LinearLayout
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/main_tabs"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
-        android:background="#FFF"
         android:padding="10dp">
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/ic_tab_home_fill"
-            android:layout_weight="1"/>
-        <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:src="@drawable/ic_tab_favorite_outline"
-            android:layout_weight="1"/>
-    </LinearLayout>
+    </com.google.android.material.tabs.TabLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

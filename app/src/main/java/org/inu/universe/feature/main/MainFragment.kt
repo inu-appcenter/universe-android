@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
 import org.inu.universe.R
 
 class MainFragment : Fragment() {
@@ -14,16 +17,17 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val profiles = container?.findViewById<RecyclerView>(R.id.main_profiles)
+        val view = inflater.inflate(R.layout.fragment_main, container, false)
+
+        val profiles = view.findViewById<RecyclerView>(R.id.main_profiles)
         profiles?.adapter = ProfilesAdapter(
             arrayListOf(MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""))
         )
-
 
         //binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //binding.lifecycleOwner = this
         //binding.viewModel = viewModel
 
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        return view
     }
 }

@@ -2,30 +2,47 @@ package org.inu.universe.feature.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.RecyclerView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
+import androidx.viewpager2.adapter.FragmentStateAdapter
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import org.inu.universe.R
 
 class MainActivity : AppCompatActivity() {
-    //private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels()
+    val tabNames = arrayListOf("홈", "하트", "채팅", "프로필")
+    val tabIcons = arrayListOf(
+        R.drawable.ic_home_outline,
+        R.drawable.ic_favorite_outline,
+        R.drawable.ic_chat_bubble_outline,
+        R.drawable.ic_person_outline)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        //binding.lifecycleOwner = this
-        //binding.viewModel = viewModel
 
-//        val profiles = findViewById<RecyclerView>(R.id.main_profiles)
-//        profiles.adapter = ProfilesAdapter(
-//            arrayListOf(MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""))
-//        )
-//
-//        viewModel.shouldOpenWeb.observe(this, Observer {
-//            startActivity(it)
-//        })
+        val tabs = findViewById<TabLayout>(R.id.main_tabs)
+        val viewPager = findViewById<ViewPager2>(R.id.main_viewpager)
+
+        viewPager.adapter = PagerAdapter(this)
+        TabLayoutMediator(tabs, viewPager) {
+            tab, position -> tab.text = tabNames[position]
+        }.attach()
+
+        (0 until 4).forEach {
+            tabs.getTabAt(it)?.setIcon(tabIcons[it])
+        }
+    }
+
+    private inner class PagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+        override fun getItemCount(): Int = 4
+
+        override fun createFragment(position: Int): Fragment {
+            return when (position) {
+                0 -> MainFragment()
+                else -> MainFragment()
+            }
+        }
     }
 }

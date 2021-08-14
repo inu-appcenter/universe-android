@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="org.inu.universe.feature.main.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.main.MainActivity"
+        android:background="@color/white">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- header -->
+
+                <ImageView
+                    android:id="@+id/main_header_background"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@drawable/main_header_background" />
+
+                <ImageView
+                    android:id="@+id/main_text_universe"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_width="110dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_main_text_universe"/>
+
+                <TextView
+                    app:layout_constraintBottom_toBottomOf="@id/main_text_universe"
+                    app:layout_constraintStart_toStartOf="@id/main_text_universe"
+                    android:layout_marginBottom="16dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UNIVERSE"
+                    android:textSize="11sp"
+                    android:textColor="@color/white"/>
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.9"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/ic_planet"/>
+
+                <!-- body -->
+
+                <ImageView
+                    android:id="@+id/main_body_background"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp"
+                    android:background="@drawable/main_body_background"
+                    android:layout_marginTop="130dp"/>
+
+                <TextView
+                    android:id="@+id/main_chat_bubble"
+                    app:layout_constraintTop_toTopOf="@id/main_body_background"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginStart="35dp"
+                    android:layout_width="210dp"
+                    android:layout_height="52dp"
+                    android:text="원하는 상대 설정하기"
+                    android:textSize="18sp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/main_chat_bubble"
+                    android:gravity="center"
+                    android:paddingBottom="10dp"/>
+
+                <TextView
+                    android:id="@+id/today_uni_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/main_chat_bubble"
+                    app:layout_constraintStart_toStartOf="@id/main_chat_bubble"
+                    android:layout_marginTop="24dp"
+                    android:text="오늘의"
+                    android:textColor="#666"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/today_uni_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/today_uni_left"
+                    app:layout_constraintStart_toEndOf="@id/today_uni_left"
+                    android:text=" 유니"
+                    android:textColor="#4FDAE2"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/today_uni_bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/today_uni_left"
+                    app:layout_constraintStart_toStartOf="@id/today_uni_left"
+                    android:text="Today's UNI _____________________________________"
+                    android:textColor="#999999"/>
+
+                <!-- 프로필 -->
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/main_profiles"
+                    app:layout_constraintTop_toBottomOf="@id/today_uni_bottom"
+                    android:layout_marginTop="28dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"/>
+
+                <LinearLayout
+                    app:layout_constraintTop_toBottomOf="@id/main_profiles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="36dp">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:src="@drawable/main_long_dot" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:src="@drawable/main_dot"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:src="@drawable/main_dot"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:src="@drawable/main_dot"/>
+                </LinearLayout>
+
+                <!-- MBTI -->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="330dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintTop_toBottomOf="@id/main_profiles"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginBottom="90dp"
+                    android:elevation="5dp"
+                    android:background="@drawable/main_mbti_background">
+
+                    <TextView
+                        android:id="@+id/main_mbti_description"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginStart="24dp"
+                        android:text="내 성향이 궁금하다면?"
+                        android:textColor="#999999"
+                        android:textSize="10sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/main_mbti_description"
+                        app:layout_constraintStart_toStartOf="@id/main_mbti_description"
+                        android:text="MBTI 테스트 하러가기"
+                        android:textColor="#666666"
+                        android:textSize="14sp"
+                        android:onClick="@{()->viewModel.onMbtiClick()}"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

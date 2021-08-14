@@ -1,17 +1,301 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <variable
             name="viewModel"
             type="org.inu.universe.feature.selected_profile.SelectedProfileViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".feature.selected_profile.SelectedProfileActivity">
+        android:layout_height="match_parent">
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".feature.selected_profile.SelectedProfileActivity">
+
+                <ImageView
+                    android:id="@+id/selected_profile_header_background"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:background="@drawable/main_header_background"/>
+
+                <ImageView
+                    android:id="@+id/selected_profile_btn_undo"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_width="17dp"
+                    android:layout_height="29dp"
+                    android:src="@drawable/ic_btn_undo"/>
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="@id/selected_profile_btn_undo"
+                    app:layout_constraintStart_toEndOf="@id/selected_profile_btn_undo"
+                    android:layout_marginStart="16dp"
+                    android:layout_width="100dp"
+                    android:layout_height="26dp"
+                    android:src="@drawable/ic_txt_universe"/>
+
+                <ImageView
+                    app:layout_constraintTop_toTopOf="@id/selected_profile_btn_undo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="36dp"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/ic_planet"/>
+
+                <TextView
+                    android:id="@+id/title_selected_profile"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="100dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="상대 프로필"
+                    android:textStyle="bold"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"/>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/selected_profile_photo"
+                    app:layout_constraintTop_toBottomOf="@id/title_selected_profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="32dp"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:background="#FFF"
+                    app:cardCornerRadius="100dp">
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:background="@color/white"/>
+                </androidx.cardview.widget.CardView>
+
+                <!-- body -->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="240dp"
+                    android:paddingHorizontal="40dp"
+                    android:paddingBottom="50dp"
+                    android:background="@drawable/main_body_background">
+
+                    <TextView
+                        android:id="@+id/selected_profile_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="144dp"
+                        android:text="냥냥 / 20, 여"
+                        android:textSize="24sp"
+                        android:textColor="#707070"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/selected_profile_major"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/selected_profile_info"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="8dp"
+                        android:text="컴퓨터공학과"
+                        android:textSize="18sp"
+                        android:textColor="#4FDAE2"/>
+
+                    <TextView
+                        android:id="@+id/selected_profile_introduction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/selected_profile_major"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="24dp"
+                        android:text="저랑 민초 먹으러 가실 분!!"
+                        android:textSize="14sp"
+                        android:textColor="#707070"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        app:layout_constraintTop_toBottomOf="@id/selected_profile_introduction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:paddingVertical="50dp"
+                        android:paddingHorizontal="32dp"
+                        android:background="@drawable/selected_profile_body_background">
+
+                        <!-- left -->
+
+                        <TextView
+                            android:id="@+id/selected_profile_region"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="지역"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#666666"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_body_type"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_region"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="키/ 체형"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#666666"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_interest"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_body_type"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="관심사/ 취미"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#666666"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_mbti"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_interest"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="MBTI"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#666666"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_graduation"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_mbti"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="졸업유무"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+                            android:textColor="#666666"/>
+
+                        <!-- right -->
+
+                        <TextView
+                            android:id="@+id/selected_profile_region_info"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="인천"
+                            android:textSize="14sp"
+                            android:textColor="#707070"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_body_type_info"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_region_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="165cm / 마름"
+                            android:textSize="14sp"
+                            android:textColor="#707070"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_interest_info"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_body_type_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="그림그리기"
+                            android:textSize="14sp"
+                            android:textColor="#707070"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_mbti_info"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_interest_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="165cm / 마름"
+                            android:textSize="14sp"
+                            android:textColor="#707070"/>
+
+                        <TextView
+                            android:id="@+id/selected_profile_graduation_info"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_mbti_info"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginTop="36dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ENTP"
+                            android:textSize="14sp"
+                            android:textColor="#707070"/>
+
+                        <!-- divider -->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="17dp"
+                            android:background="#E3E2E2"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_region"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="17dp"
+                            android:background="#E3E2E2"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_body_type"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="17dp"
+                            android:background="#E3E2E2"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_interest"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="17dp"
+                            android:background="#E3E2E2"
+                            app:layout_constraintTop_toBottomOf="@id/selected_profile_mbti"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

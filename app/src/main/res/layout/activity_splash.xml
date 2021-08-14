@@ -41,6 +41,7 @@
         app:layout_constraintTop_toBottomOf="@id/splash_universe"
         android:layout_marginTop="8dp"
         android:text="인천대학교 유니들의 우주광장"
+        android:textSize="16sp"
         android:textColor="@color/white"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

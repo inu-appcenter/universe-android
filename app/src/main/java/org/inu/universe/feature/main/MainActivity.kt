@@ -9,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.inu.universe.R
+import org.inu.universe.feature.my_profile.MyProfileFragment
 
 class MainActivity : AppCompatActivity() {
     val tabNames = arrayListOf("홈", "하트", "채팅", "프로필")
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> MainFragment()
+                3 -> MyProfileFragment()
                 else -> MainFragment()
             }
         }

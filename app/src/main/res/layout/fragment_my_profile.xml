@@ -18,10 +18,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:context=".feature.my_profile.MyProfileActivity">
+                android:layout_height="match_parent">
 
                 <ImageView
                     android:id="@+id/my_profile_header_background"
@@ -83,7 +81,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/easfa"
-                        android:scaleType="centerCrop"
+                        android:scaleType="centerCrop"/>
                 </androidx.cardview.widget.CardView>
 
                 <TextView

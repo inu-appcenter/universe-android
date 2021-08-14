@@ -3,10 +3,11 @@
     <data>
         <variable
             name="viewModel"
-            type="org.inu.universe.feature.chatting_list.ChattingListViewModel" />
+            type="org.inu.universe.feature.chatting_list.ChatListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -15,4 +16,3 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-

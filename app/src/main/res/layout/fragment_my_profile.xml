@@ -109,15 +109,16 @@
                     android:textColor="@color/white"/>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/my_profile_body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="288dp"
                     android:background="@drawable/selected_profile_body_background"
                     android:layout_marginHorizontal="40dp"
-                    android:layout_marginBottom="40dp"
                     android:paddingVertical="40dp"
-                    android:paddingHorizontal="40dp">
+                    android:paddingHorizontal="40dp"
+                    android:elevation="5dp">
 
                     <!-- left -->
 
@@ -297,6 +298,19 @@
                         app:layout_constraintTop_toBottomOf="@id/my_profile_graduation"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/my_profile_body"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginTop="28dp"
+                    android:text="프로필 수정"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:background="@drawable/my_profile_btn_background"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginBottom="100dp"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

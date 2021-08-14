@@ -9,30 +9,49 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.inu.universe.R
+import org.inu.universe.feature.chatting_list.ChatListFragment
+import org.inu.universe.feature.like_list.LikeListFragment
 import org.inu.universe.feature.my_profile.MyProfileFragment
 
 class MainActivity : AppCompatActivity() {
     val tabNames = arrayListOf("홈", "하트", "채팅", "프로필")
-    val tabIcons = arrayListOf(
+    val tabOutlineIcons = arrayListOf(
         R.drawable.ic_home_outline,
         R.drawable.ic_favorite_outline,
         R.drawable.ic_chat_bubble_outline,
         R.drawable.ic_person_outline)
+    val tabFilledIcons = arrayListOf(
+        R.drawable.ic_tab_home_fill,
+        R.drawable.ic_tab_favorite_fill,
+        R.drawable.ic_tab_chat_bubble_fill,
+        R.drawable.ic_tab_person_fill)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val tabs = findViewById<TabLayout>(R.id.main_tabs)
         val viewPager = findViewById<ViewPager2>(R.id.main_viewpager)
-
         viewPager.adapter = PagerAdapter(this)
+
+        // tab 초기화
+        val tabs: TabLayout = findViewById(R.id.main_tabs)
         TabLayoutMediator(tabs, viewPager) {
             tab, position -> tab.text = tabNames[position]
         }.attach()
+        tabs.getTabAt(0)?.setIcon(tabOutlineIcons[0])
+        tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tabs.getTabAt(tab!!.position)?.setIcon(tabFilledIcons[tab!!.position])
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+                tabs.getTabAt(tab!!.position)?.setIcon(tabOutlineIcons[tab!!.position])
+            }
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
 
         (0 until 4).forEach {
-            tabs.getTabAt(it)?.setIcon(tabIcons[it])
+            tabs.getTabAt(it)?.setIcon(tabOutlineIcons[it])
         }
     }
 
@@ -42,9 +61,13 @@ class MainActivity : AppCompatActivity() {
         override fun createFragment(position: Int): Fragment {
             return when (position) {
                 0 -> MainFragment()
+                1 -> LikeListFragment()
+                2 -> ChatListFragment()
                 3 -> MyProfileFragment()
                 else -> MainFragment()
             }
         }
+
+
     }
 }

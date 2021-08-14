@@ -175,7 +175,7 @@
                             android:layout_marginTop="36dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="관심사/ 취미"
+                            android:text="해시태그"
                             android:textSize="14sp"
                             android:textStyle="bold"
                             android:textColor="#666666"/>

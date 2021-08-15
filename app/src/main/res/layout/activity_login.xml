@@ -106,32 +106,13 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/loginbutton"/>
 
-        <TextView
-            android:id="@+id/loginMaintain_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="로그인 유지"
-            android:textColor="#808080"
-            android:layout_marginTop="10dp"
-            app:layout_constraintStart_toStartOf="@+id/login_btn"
-            app:layout_constraintTop_toBottomOf="@+id/login_btn" />
-
-        <CheckBox
-            android:id="@+id/login_checkBox"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:button="@drawable/logincheckbox"
-            android:layout_marginStart="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/loginMaintain_tv"
-            app:layout_constraintStart_toEndOf="@+id/loginMaintain_tv"
-            app:layout_constraintTop_toTopOf="@+id/loginMaintain_tv" />
 
         <TextView
+            android:id="@+id/loginSignup_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="회원가입"
             android:textColor="#808080"
-            android:background="@drawable/textclick_color"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="@+id/login_btn"
             app:layout_constraintTop_toBottomOf="@+id/login_btn" />

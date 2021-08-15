@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="org.inu.universe.feature.signup.SignupViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".feature.signup.SignupEmailCheckActivity"
+        android:background="#F7F7F9">
+
+        <TextView
+            android:id="@+id/profile_setting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="30dp"
+            android:src="@drawable/back_btn"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_setting_tv"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/profile_setting_tv" />
+
+
+        <ImageView
+            android:id="@+id/emailCheck_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/signup_back"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/emailCheck_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이메일 인증"
+            android:textSize="17sp"
+            android:textColor="#666666"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="@+id/emailCheck_img"
+            app:layout_constraintTop_toTopOf="@id/emailCheck_img"
+            app:layout_constraintStart_toStartOf="@id/emailCheck_img"/>
+
+
+        <EditText
+            android:id="@+id/imageView2"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:hint="인증번호"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:paddingStart="15dp"
+            android:background="@drawable/signup_verificationcode"
+            app:layout_constraintStart_toStartOf="@id/emailCheck_img"
+            app:layout_constraintEnd_toStartOf="@id/emailCheck_check_btn"
+            android:layout_marginTop="40dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/emailCheck_tv" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4:00"
+            android:textColor="#4FDAE2"
+            android:layout_marginEnd="18dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/emailCheck_check_btn"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/signup_email_check_btn"
+            android:text="확인"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+            app:layout_constraintEnd_toEndOf="@+id/emailCheck_img"
+            app:layout_constraintStart_toEndOf="@+id/imageView2"
+            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -20,7 +20,7 @@
                 android:bottomRightRadius="40dp"
                 android:topLeftRadius="40dp"
                 android:topRightRadius="40dp"></corners>
-            <stroke android:color="#999999" android:width="3dp" />
+            <stroke android:color="#FFFFFF" android:width="3dp" />
         </shape>
     </item>
 </selector>

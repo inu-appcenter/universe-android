@@ -1,17 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="org.inu.universe.feature.signup.SignupViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="#F7F7F9"
         tools:context=".feature.signup.SignupActivity">
+
+        <TextView
+            android:id="@+id/profile_setting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="회원가입"
+            android:textColor="#666666"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_setting_tv"
+            app:layout_constraintTop_toTopOf="@+id/profile_setting_tv"
+            android:src="@drawable/back_btn"/>
+
+
+        <EditText
+            android:id="@+id/nickName_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/initalizing_profile_et"
+            android:hint="학교 이메일"
+            android:paddingStart="20dp"
+            android:textSize="15sp"
+            android:textColorHint="#999999"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="\@inu.ac.kr"
+            android:layout_marginEnd="40dp"
+            android:textColor="#666666"
+            app:layout_constraintBottom_toBottomOf="@+id/nickName_et"
+            app:layout_constraintEnd_toEndOf="@+id/nickName_et"
+            app:layout_constraintTop_toTopOf="@+id/nickName_et" />
+
+
+        <EditText
+            android:id="@+id/age_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/initalizing_profile_et"
+            android:hint="비밀번호"
+            android:paddingStart="20dp"
+            android:textSize="15sp"
+            android:textColorHint="#999999"
+            app:layout_constraintStart_toStartOf="@+id/nickName_et"
+            app:layout_constraintTop_toBottomOf="@+id/nickName_et" />
+
+        <EditText
+            android:id="@+id/passwordCheck_et"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/initalizing_profile_et"
+            android:hint="비밀번호 확인"
+            android:paddingStart="20dp"
+            android:textSize="15sp"
+            android:textColorHint="#999999"
+            app:layout_constraintStart_toStartOf="@+id/age_et"
+            app:layout_constraintTop_toBottomOf="@+id/age_et" />
+
+
+
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/setting_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="50dp"
+            android:background="@drawable/initalizing_profile_button"
+            android:text="다음"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordCheck_et" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

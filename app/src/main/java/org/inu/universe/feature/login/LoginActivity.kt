@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
     private val viewModel: LoginViewModel by viewModels()
 
     var retrofit = Retrofit.Builder()
-        .baseUrl("여긴 뭐가 들어가야 될까")
+        .baseUrl("http://ec2-3-38-49-9.ap-northeast-2.compute.amazonaws.com:8080/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

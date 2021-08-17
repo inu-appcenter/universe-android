@@ -40,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
         binding.viewModel = viewModel
 
 
-
         binding.loginBtn.setOnClickListener {
             login()
 
@@ -50,7 +49,6 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
         }
-
 
 
     }

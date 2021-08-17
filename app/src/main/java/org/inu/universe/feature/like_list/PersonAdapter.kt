@@ -3,6 +3,7 @@ package org.inu.universe.feature.like_list
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import org.inu.universe.R
@@ -21,7 +22,7 @@ class PersonAdapter(private val PersonList : List<PersonInfo>)
         holder.name?.text = PersonList[position].name
         holder.age?.text = PersonList[position].age
         holder.gender?.text = PersonList[position].gender
-
+        holder.photo?.setImageResource(PersonList[position].photo)
     }
 
     override fun getItemCount(): Int = PersonList.size
@@ -29,7 +30,7 @@ class PersonAdapter(private val PersonList : List<PersonInfo>)
 
 
     inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view) {
-        var photo: TextView? = null
+        var photo: ImageView? = null
         var name: TextView? = null
         var age: TextView? = null
         var gender: TextView? = null

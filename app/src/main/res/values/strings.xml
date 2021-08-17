@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">universe</string>
+    <string name="formatted_time">%02d:%02d</string>
 </resources>

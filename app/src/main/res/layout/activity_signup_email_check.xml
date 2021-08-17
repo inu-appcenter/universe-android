@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/back_btn"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="30dp"
@@ -74,6 +74,7 @@
             app:layout_constraintTop_toBottomOf="@id/emailCheck_tv" />
 
         <TextView
+            android:id="@+id/Timer_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="4:00"

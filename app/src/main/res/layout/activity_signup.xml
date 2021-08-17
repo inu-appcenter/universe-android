@@ -27,6 +27,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/back_btn"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginStart="30dp"
@@ -37,7 +38,7 @@
 
 
         <EditText
-            android:id="@+id/nickName_et"
+            android:id="@+id/email_et"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginStart="30dp"
@@ -57,13 +58,13 @@
             android:text="\@inu.ac.kr"
             android:layout_marginEnd="40dp"
             android:textColor="#666666"
-            app:layout_constraintBottom_toBottomOf="@+id/nickName_et"
-            app:layout_constraintEnd_toEndOf="@+id/nickName_et"
-            app:layout_constraintTop_toTopOf="@+id/nickName_et" />
+            app:layout_constraintBottom_toBottomOf="@+id/email_et"
+            app:layout_constraintEnd_toEndOf="@+id/email_et"
+            app:layout_constraintTop_toTopOf="@+id/email_et" />
 
 
         <EditText
-            android:id="@+id/age_et"
+            android:id="@+id/password_et"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
@@ -73,9 +74,10 @@
             android:hint="비밀번호"
             android:paddingStart="20dp"
             android:textSize="15sp"
+            android:inputType="textPassword"
             android:textColorHint="#999999"
-            app:layout_constraintStart_toStartOf="@+id/nickName_et"
-            app:layout_constraintTop_toBottomOf="@+id/nickName_et" />
+            app:layout_constraintStart_toStartOf="@+id/email_et"
+            app:layout_constraintTop_toBottomOf="@+id/email_et" />
 
         <EditText
             android:id="@+id/passwordCheck_et"
@@ -88,9 +90,10 @@
             android:hint="비밀번호 확인"
             android:paddingStart="20dp"
             android:textSize="15sp"
+            android:inputType="textPassword"
             android:textColorHint="#999999"
-            app:layout_constraintStart_toStartOf="@+id/age_et"
-            app:layout_constraintTop_toBottomOf="@+id/age_et" />
+            app:layout_constraintStart_toStartOf="@+id/password_et"
+            app:layout_constraintTop_toBottomOf="@+id/password_et" />
 
 
 

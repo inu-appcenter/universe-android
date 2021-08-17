@@ -83,6 +83,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:paddingStart="15dp"
+            android:inputType="textPassword"
             app:layout_constraintStart_toStartOf="@+id/universe_Bottom_img"
             app:layout_constraintTop_toBottomOf="@+id/email_et"
             android:layout_marginStart="50dp"

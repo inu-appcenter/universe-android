@@ -18,6 +18,7 @@ class LikeListFragment : Fragment() {
 
         val PersonInfoList = arrayListOf<PersonAdapter.PersonInfo>(
             PersonAdapter.PersonInfo(R.drawable.easfa,"김예강", "21", "남")
+
         )
 
         val likePerson = view.findViewById<RecyclerView>(R.id.likeList_person)

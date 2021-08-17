@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/likeList_person_photo"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="#FFFFFF"
+        app:cardCornerRadius="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/person_photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF"
+            android:src="@drawable/easfa"
+            android:scaleType="centerCrop"
+            />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/person_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="냥냥"
+        android:textSize="20sp"
+        android:textColor="#666666"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/likeList_person_photo"
+        app:layout_constraintStart_toEndOf="@id/likeList_person_photo"
+        app:layout_constraintTop_toTopOf="@+id/likeList_person_photo" />
+    <TextView
+        android:id="@+id/slash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:textSize="20sp"
+        android:textColor="#666666"
+        app:layout_constraintStart_toEndOf="@id/person_name"
+        app:layout_constraintTop_toTopOf="@id/person_name"
+        app:layout_constraintBottom_toBottomOf="@id/person_name"/>
+    <TextView
+        android:id="@+id/person_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textSize="20sp"
+        android:textColor="#666666"
+        app:layout_constraintStart_toEndOf="@id/slash"
+        app:layout_constraintTop_toTopOf="@id/slash"
+        app:layout_constraintBottom_toBottomOf="@id/slash"/>
+    <TextView
+        android:id="@+id/and"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=","
+        android:textSize="20sp"
+        android:textColor="#666666"
+        app:layout_constraintStart_toEndOf="@id/person_age"
+        app:layout_constraintTop_toTopOf="@id/person_age"
+        app:layout_constraintBottom_toBottomOf="@id/person_age"/>
+    <TextView
+        android:id="@+id/person_gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="여"
+        android:textSize="20sp"
+        android:textColor="#666666"
+        app:layout_constraintStart_toEndOf="@id/and"
+        app:layout_constraintTop_toTopOf="@id/and"
+        app:layout_constraintBottom_toBottomOf="@id/and"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="컴퓨터공학과"
+        app:layout_constraintStart_toEndOf="@id/likeList_person_photo"
+        app:layout_constraintTop_toBottomOf="@id/person_name" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/noLike_btn"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:background="@drawable/gray_btn"
+        android:text="관심없음"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/Like_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Like_btn"
+        android:layout_width="70dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/signup_email_check_btn"
+        android:text="좋아요"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/noLike_btn"
+        app:layout_constraintEnd_toStartOf="@id/noLike_btn"
+        app:layout_constraintTop_toTopOf="@+id/slash" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#999999"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintStart_toStartOf="@+id/likeList_person_photo"
+        app:layout_constraintTop_toBottomOf="@id/likeList_person_photo" />
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

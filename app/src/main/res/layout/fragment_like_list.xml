@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
@@ -7,12 +9,61 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.like_list.LikeListActivity">
+
+
+        <!-- header -->
+
+        <ImageView
+            android:id="@+id/main_header_background"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/main_header_background" />
+
+        <!-- body -->
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/back_btn"
+            android:layout_width="10dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/ic_btn_undo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="나를 좋아하는 사람들"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="@+id/back_btn"
+            app:layout_constraintStart_toStartOf="@+id/back_btn"
+            app:layout_constraintTop_toTopOf="@+id/back_btn" />
+
+        <ImageView
+            android:id="@+id/main_body_background"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:background="@drawable/main_body_background"
+            android:layout_marginTop="130dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/likeList_person"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="180dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="@+id/main_body_background"
+            app:layout_constraintStart_toStartOf="@+id/main_body_background"
+            app:layout_constraintTop_toBottomOf="@+id/main_header_background" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

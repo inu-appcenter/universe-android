@@ -1,6 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="age_array">
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
+        <item>30</item>
+        <item>31</item>
+        <item>32</item>
+        <item>33</item>
+        <item>34</item>
+        <item>35</item>
+    </string-array>
+
+    <string-array name="college_array">
+        <item>경영대학</item>
+        <item>공과대학</item>
+        <item>글로벌정경대학</item>
+        <item>단과대구분없음</item>
+        <item>도시과학대학</item>
+        <item>사범대학</item>
+        <item>사회과학대학</item>
+        <item>생명과학대학</item>
+        <item>예술체육대학</item>
+        <item>인문대학</item>
+        <item>자연과학대학</item>
+        <item>정보기술대학</item>
+    </string-array>
+
+    <string-array name="major_array">
         <item>Mercury</item>
         <item>Venus</item>
         <item>Earth</item>
@@ -11,7 +46,26 @@
         <item>Neptune</item>
     </string-array>
 
-    <string-array name="age_array2">
+    <string-array name="region_array">
+        <item>서울특별시</item>
+        <item>인천광역시</item>
+        <item>광주광역시</item>
+        <item>대구광역시</item>
+        <item>대전광역시</item>
+        <item>부산광역시</item>
+        <item>울산광역시</item>
+        <item>강원도</item>
+        <item>경기도</item>
+        <item>경상남도</item>
+        <item>경상북도</item>
+        <item>전라남도</item>
+        <item>전라북도</item>
+        <item>충청남도</item>
+        <item>충청북도</item>
+        <item>제주특별자치도</item>
+    </string-array>
+
+    <string-array name="body_type_array">
         <item>Mercury</item>
         <item>Venus</item>
         <item>Earth</item>
@@ -20,5 +74,24 @@
         <item>Saturn</item>
         <item>Uranus</item>
         <item>Neptune</item>
+    </string-array>
+
+    <string-array name="mbti_array">
+        <item>ESTJ</item>
+        <item>ESTP</item>
+        <item>ESFJ</item>
+        <item>ESFP</item>
+        <item>ENTJ</item>
+        <item>ENTP</item>
+        <item>ENFJ</item>
+        <item>ENFP</item>
+        <item>ISTJ</item>
+        <item>ISTP</item>
+        <item>ISFJ</item>
+        <item>ISFP</item>
+        <item>INTJ</item>
+        <item>INTP</item>
+        <item>INFJ</item>
+        <item>INFP</item>
     </string-array>
 </resources>

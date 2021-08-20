@@ -6,12 +6,94 @@
             type="org.inu.universe.feature.tag.TagViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".feature.tag.TagActivity">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#F7F7F9">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/tag_undo"
+                    android:layout_width="17dp"
+                    android:layout_height="29dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="50dp"
+                    android:backgroundTint="#666666"
+                    android:background="@drawable/ic_btn_undo"/>
+
+                <TextView
+                    android:id="@+id/title_tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="@id/tag_undo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="50dp"
+                    android:text="당신을 표현할 수 있는 키워드"
+                    android:textStyle="bold"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/tag_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/title_tag"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="6dp"
+                    android:text="최대 3개까지 고를 수 있습니다."
+                    android:textSize="14sp"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/tag_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tag_description"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="56dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/tag_selected_tags"
+                    android:layout_width="match_parent"
+                    android:layout_height="28dp"
+                    app:layout_constraintTop_toBottomOf="@id/tag_tags"
+                    app:layout_constraintBottom_toTopOf="@id/tag_ok"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="48dp"
+                    android:text="#민초단   #수영   #음악"
+                    android:gravity="center"/>
+                
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/tag_ok"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginHorizontal="40dp"
+                    android:layout_marginBottom="100dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/selected_profile_body_background"
+                    android:backgroundTint="#8251FC"
+                    android:text="완료"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

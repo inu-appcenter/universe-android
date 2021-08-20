@@ -302,6 +302,7 @@
                 android:background="@drawable/selected_profile_body_background"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/profile_update_ok"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -311,7 +312,8 @@
                 android:text="완료"
                 android:textColor="@color/white"
                 android:backgroundTint="#8251FC"
-                android:background="@drawable/selected_profile_body_background"/>
+                android:background="@drawable/selected_profile_body_background"
+                android:layout_marginHorizontal="40dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

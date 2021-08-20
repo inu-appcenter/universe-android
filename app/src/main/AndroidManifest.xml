@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.inu.universe">
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Universe"
         android:usesCleartextTraffic="true">
-        <activity android:name=".feature.signup.SignupEmailCheckActivity"></activity>
+        <activity android:name=".feature.profile_update.ProfileUpdate"></activity>
+        <activity android:name=".feature.signup.SignupEmailCheckActivity" />
         <activity android:name=".feature.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +31,5 @@
         <activity android:name=".feature.login.LoginActivity" />
         <activity android:name=".feature.main.MainActivity" />
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

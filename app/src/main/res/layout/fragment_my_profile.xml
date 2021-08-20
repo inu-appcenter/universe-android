@@ -200,7 +200,7 @@
                         android:layout_marginTop="4dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="민초파 모여랏~!"
+                        android:text="@{viewModel.introduction}"
                         android:textSize="13sp"
                         android:textColor="#666666"/>
 
@@ -299,6 +299,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/my_profile_btn_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toBottomOf="@id/my_profile_body"

@@ -1,4 +1,5 @@
 package org.inu.universe.global
 
-class Store {
+object Store {
+    var jwt: String? = null
 }

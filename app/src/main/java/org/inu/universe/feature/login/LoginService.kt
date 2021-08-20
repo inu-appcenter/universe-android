@@ -1,17 +1,18 @@
 package org.inu.universe.feature.login
 
 import okhttp3.ResponseBody
+import org.inu.universe.model.retrofit.LoginResponse
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.*
 
 interface LoginService {
 
-    @FormUrlEncoded
+    @Headers("Accept: application/json", "Content-type: application/json")
     @POST("/account/login")
     fun requestLogin(
-        @Field("address") address:String,
-        @Field("password") password:String
-    ) : Call<Unit>
+        @Body json:JSONObject
+    ) : Call<LoginResponse>
 
     @GET("/account/login")
     fun getToken(

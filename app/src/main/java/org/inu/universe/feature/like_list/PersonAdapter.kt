@@ -36,7 +36,7 @@ class PersonAdapter(private val PersonList : List<PersonInfo>)
         var gender: TextView? = null
         init {
             photo = view.findViewById(R.id.person_photo)
-            name = view.findViewById(R.id.person_name)
+            name = view.findViewById(R.id.chatList_name)
             age = view.findViewById(R.id.person_age)
             gender = view.findViewById(R.id.person_gender)
         }

@@ -7,8 +7,8 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/likeList_person_photo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:background="#FFFFFF"
         app:cardCornerRadius="100dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/person_name"
+        android:id="@+id/chatList_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -46,9 +46,9 @@
         android:text="/"
         android:textSize="20sp"
         android:textColor="#666666"
-        app:layout_constraintStart_toEndOf="@id/person_name"
-        app:layout_constraintTop_toTopOf="@id/person_name"
-        app:layout_constraintBottom_toBottomOf="@id/person_name"/>
+        app:layout_constraintStart_toEndOf="@id/chatList_name"
+        app:layout_constraintTop_toTopOf="@id/chatList_name"
+        app:layout_constraintBottom_toBottomOf="@id/chatList_name"/>
     <TextView
         android:id="@+id/person_age"
         android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
         android:layout_marginStart="10dp"
         android:text="컴퓨터공학과"
         app:layout_constraintStart_toEndOf="@id/likeList_person_photo"
-        app:layout_constraintTop_toBottomOf="@id/person_name" />
+        app:layout_constraintTop_toBottomOf="@id/chatList_name" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/noLike_btn"

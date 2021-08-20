@@ -1,18 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
             name="viewModel"
             type="org.inu.universe.feature.matching_option.MatchingOptionViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature.matching_option.MatchingOptionActivity">
+        tools:context=".feature.matching_option.MatchingOptionActivity"
+        android:background="#F7F7F9">
+
+        <!--header-->
+
+        <TextView
+            android:id="@+id/profile_setting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="원하는 상대 설정"
+            android:textColor="#666666"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_setting_tv"
+            app:layout_constraintTop_toTopOf="@+id/profile_setting_tv"
+            android:src="@drawable/back_btn"/>
+
+        <!--body-->
+
+        <TextView
+            android:id="@+id/local_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="150dp"
+            android:text="지역"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@id/local_Spinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_setting_tv" />
+
+        <Spinner
+            android:id="@+id/local_Spinner"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/initalizing_profile_et"
+            android:entries="@array/department"
+            android:paddingStart="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/local_tv"
+            app:layout_constraintStart_toEndOf="@+id/local_tv"
+            app:layout_constraintTop_toTopOf="@+id/local_tv" />
+
+
+
+
+        <TextView
+            android:id="@+id/gender_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="성별"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="@+id/local_tv"
+            app:layout_constraintTop_toBottomOf="@+id/local_tv" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/woman_btn"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/click_change_color_btn"
+            android:text="여성"
+            android:textColor="#999999"
+            app:layout_constraintBottom_toBottomOf="@+id/gender_tv"
+            app:layout_constraintStart_toEndOf="@+id/gender_tv"
+            app:layout_constraintTop_toTopOf="@+id/gender_tv" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/unrelevance_btn"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/click_change_color_btn"
+            android:text="무관"
+            android:textColor="#999999"
+            app:layout_constraintBottom_toBottomOf="@+id/man_btn"
+            app:layout_constraintEnd_toEndOf="@+id/local_Spinner"
+            app:layout_constraintTop_toBottomOf="@+id/local_Spinner" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/man_btn"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:background="@drawable/click_change_color_btn"
+            android:text="남성"
+            android:textColor="#999999"
+            app:layout_constraintBottom_toBottomOf="@+id/woman_btn"
+            app:layout_constraintEnd_toStartOf="@+id/unrelevance_btn"
+            app:layout_constraintStart_toEndOf="@+id/woman_btn"
+            app:layout_constraintTop_toTopOf="@+id/woman_btn" />
+
+        <TextView
+            android:id="@+id/age_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="나이"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="@+id/gender_tv"
+            app:layout_constraintTop_toBottomOf="@+id/gender_tv" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="단과대"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="@+id/age_tv"
+            app:layout_constraintTop_toBottomOf="@+id/age_tv" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="병역여부"
+            android:textColor="#999999"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/setting_btn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/initalizing_profile_button"
+            android:text="완료"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="200dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintStart_toStartOf="@+id/textView4"
+            app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

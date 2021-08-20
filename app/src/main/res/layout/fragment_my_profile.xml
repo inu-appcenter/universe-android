@@ -212,7 +212,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="인천"
+                        android:text="@{viewModel.region}"
                         android:textSize="14sp"
                         android:textColor="#707070"/>
 
@@ -223,7 +223,7 @@
                         android:layout_marginTop="36dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="165cm / 마름"
+                        android:text="@{viewModel.tall + ` / ` + viewModel.bodyType}"
                         android:textSize="14sp"
                         android:textColor="#707070"/>
 
@@ -234,7 +234,7 @@
                         android:layout_marginTop="36dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="그림그리기"
+                        android:text="@{viewModel.hashtag}"
                         android:textSize="14sp"
                         android:textColor="#707070"/>
 
@@ -245,20 +245,19 @@
                         android:layout_marginTop="36dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="165cm / 마름"
+                        android:text="@{viewModel.mbti}"
                         android:textSize="14sp"
                         android:textColor="#707070"/>
 
-                    <TextView
+                    <CheckBox
                         android:id="@+id/my_profile_graduation_info"
                         app:layout_constraintTop_toBottomOf="@id/my_profile_mbti_info"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginTop="36dp"
+                        android:layout_marginTop="20dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ENTP"
-                        android:textSize="14sp"
-                        android:textColor="#707070"/>
+                        android:checked="@{viewModel.isGraduated()}"
+                        android:gravity="center" />
 
                     <!-- divider -->
 

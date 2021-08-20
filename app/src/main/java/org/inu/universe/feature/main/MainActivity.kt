@@ -9,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.inu.universe.R
+import org.inu.universe.databinding.FragmentMainBinding
 import org.inu.universe.feature.chatting_list.ChatListFragment
 import org.inu.universe.feature.like_list.LikeListFragment
 import org.inu.universe.feature.my_profile.MyProfileFragment
@@ -67,7 +68,5 @@ class MainActivity : AppCompatActivity() {
                 else -> MainFragment()
             }
         }
-
-
     }
 }

@@ -29,10 +29,6 @@ class MainFragment : Fragment() {
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(profiles)
 
-        //binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        //binding.lifecycleOwner = this
-        //binding.viewModel = viewModel
-
         return view
     }
 }

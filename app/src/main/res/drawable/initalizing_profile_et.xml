@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-
     <item android:state_enabled="true" android:state_focused="true">
         <shape android:shape = "rectangle">
             <solid android:color="@android:color/white"/>
             <corners
-                android:bottomLeftRadius="40dp"
-                android:bottomRightRadius="40dp"
-                android:topLeftRadius="40dp"
-                android:topRightRadius="40dp"></corners>
-            <stroke android:color="#4FDAE2" android:width="3dp"/>
+                android:radius="40dp"/>
+            <stroke android:color="#4FDAE2" android:width="1.5dp"/>
         </shape>
     </item>
 
     <item android:state_enabled="true">
         <shape android:shape="rectangle">
+            <solid android:color="@android:color/white"/>
             <corners
-                android:bottomLeftRadius="40dp"
-                android:bottomRightRadius="40dp"
-                android:topLeftRadius="40dp"
-                android:topRightRadius="40dp"></corners>
-            <stroke android:color="#FFFFFF" android:width="3dp" />
+                android:radius="40dp"/>
         </shape>
     </item>
 </selector>

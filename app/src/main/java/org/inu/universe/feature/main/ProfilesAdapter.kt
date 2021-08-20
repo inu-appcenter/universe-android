@@ -15,6 +15,7 @@ class ProfilesAdapter(val profiles: List<MainProfileInfo>) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: ProfilesViewHolder, position: Int) {
+
     }
 
     override fun getItemCount(): Int = profiles.size

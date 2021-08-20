@@ -8,15 +8,12 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import okhttp3.ResponseBody
-import okhttp3.internal.http2.Header
 import org.inu.universe.R
-import org.inu.universe.databinding.ActivityInitializingProfileBinding
 import org.inu.universe.databinding.ActivityLoginBinding
-import org.inu.universe.feature.initializing_profile.InitializingProfileActivity
-import org.inu.universe.feature.initializing_profile.InitializingProfileViewModel
+import org.inu.universe.feature.main.MainActivity
 import org.inu.universe.feature.signup.SignupActivity
 import org.inu.universe.global.Store
-import org.inu.universe.model.retrofit.LoginResponse
+import org.inu.universe.model.retrofit.LoginRequest
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,7 +40,6 @@ class LoginActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-
         binding.loginBtn.setOnClickListener {
             login()
         }
@@ -57,27 +53,27 @@ class LoginActivity : AppCompatActivity() {
     fun login() {
         val textId = binding.emailEt.text.toString()
         val textPw = binding.passwordEt.text.toString()
-        val json= JSONObject()
-        json.put("address", "inuappcenter")
-        json.put("password", "universe")
 
-        loginService.requestLogin(json).enqueue(object : Callback<LoginResponse> {
-            override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
+        val req = LoginRequest("inuappcenter@inu.ac.kr", "universe") // LoginRequest(textId, textPw)
+
+        loginService.requestLogin(req).enqueue(object : Callback<Unit> {
+            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful){
-                    Log.d("code : ", response.code().toString())
-                    Log.d("로그인 성공은 개뿔 : ", response.headers().toString())
-                    Log.d("로그인 성공은 개뿔 : ", response.headers().get("accessToken").toString())
-                    //Store.jwt = response.headers().get("accessToken")
-//                    val intent = Intent(this@LoginActivity, InitializingProfileActivity::class.java)
-//                    startActivity(intent)
+                    Store.jwt = response.headers().get("accessToken")
+                    if(Store.jwt != null)
+                        Log.d("jwt 저장 완료", response.headers().toString())
                 } else {
-                    Toast.makeText(this@LoginActivity, "login failed", Toast.LENGTH_SHORT).show()
-                    Log.e("실패, response code : ", response.code().toString())
+                    Toast.makeText(this@LoginActivity, "실패", Toast.LENGTH_SHORT).show()
+                    Log.e("response code : ", response.code().toString())
                 }
+
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
             }
 
-            override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+            override fun onFailure(call: Call<Unit>, t: Throwable) {
                 t.printStackTrace()
+                Log.e("로그인 실패!", "")
                 Toast.makeText(this@LoginActivity, "로그인 실패!", Toast.LENGTH_SHORT).show()
             }
         })

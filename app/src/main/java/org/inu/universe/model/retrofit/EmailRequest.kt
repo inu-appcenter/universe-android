@@ -1,3 +1,5 @@
 package org.inu.universe.model.retrofit
 
-data class EmailRequest(val address: String)
+data class EmailRequest(
+    val address: String
+    )

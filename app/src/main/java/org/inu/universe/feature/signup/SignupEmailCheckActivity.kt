@@ -11,6 +11,7 @@ import org.inu.universe.R
 import org.inu.universe.databinding.ActivitySignupBinding
 import org.inu.universe.databinding.ActivitySignupEmailCheckBinding
 import org.inu.universe.global.Store
+import org.inu.universe.model.retrofit.EmailAuthenticationRequest
 import org.inu.universe.model.retrofit.EmailRequest
 import org.inu.universe.model.retrofit.EmailService
 import org.inu.universe.model.retrofit.RetrofitBuilder
@@ -60,6 +61,27 @@ class SignupEmailCheckActivity : AppCompatActivity() {
                     Log.e("이메일 코드 전송 실패", "onFailure")
                 }
             })
+
+        val inputCode = binding.inputAuthenticationCode.text.toString()
+        binding.emailCheckCheckBtn.setOnClickListener {
+            emailService.requestAuthentication(EmailAuthenticationRequest(Store.email!!, inputCode))
+                .enqueue(object: Callback<Unit> {
+                    override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
+                        if(response.isSuccessful) {
+                            Log.d("이메일 인증", "성공" + response.code())
+                            finish()
+                        }
+                        else {
+                            Log.e("이메일 인증 실패, code ", response.code().toString())
+                        }
+                    }
+
+                    override fun onFailure(call: Call<Unit>, t: Throwable) {
+                        t.printStackTrace()
+                        Log.e("인증 실패", "onFailure")
+                    }
+                })
+        }
     }
 
 

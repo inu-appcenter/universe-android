@@ -17,5 +17,4 @@ interface LoginService {
     fun getToken(
         @Header("Authorization") authToken: String
     ) : Call<ResponseBody>
-
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_focused="true">
+    <item android:state_checked="true">
         <shape>
             <size android:width="100dp" android:height="48dp"/>
             <corners android:radius="24dp"/>
@@ -8,7 +8,7 @@
         </shape>
     </item>
 
-    <item android:state_focused="false">
+    <item android:state_checked="false">
         <shape>
             <size android:width="100dp" android:height="48dp"/>
             <corners android:radius="24dp"/>

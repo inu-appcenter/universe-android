@@ -23,7 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:padding="10dp"
+        app:tabSelectedTextColor="#8251FC"
+        app:tabIndicator="@drawable/tab_indicator">
     </com.google.android.material.tabs.TabLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

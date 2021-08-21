@@ -31,13 +31,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setTab()
+    }
+
+    fun setTab() {
+        // tab 초기화
         val viewPager = findViewById<ViewPager2>(R.id.main_viewpager)
         viewPager.adapter = PagerAdapter(this)
-
-        // tab 초기화
         val tabs: TabLayout = findViewById(R.id.main_tabs)
         TabLayoutMediator(tabs, viewPager) {
-            tab, position -> tab.text = tabNames[position]
+                tab, position -> tab.text = tabNames[position]
         }.attach()
         tabs.getTabAt(0)?.setIcon(tabOutlineIcons[0])
         tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {

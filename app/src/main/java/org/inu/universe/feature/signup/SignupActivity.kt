@@ -3,12 +3,22 @@ package org.inu.universe.feature.signup
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import org.inu.universe.R
 import org.inu.universe.databinding.ActivitySignupBinding
+import org.inu.universe.global.Store
+import org.inu.universe.model.retrofit.EmailRequest
+import org.inu.universe.model.retrofit.EmailService
+import org.inu.universe.model.retrofit.RetrofitBuilder
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.create
 
 class SignupActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignupBinding
@@ -60,9 +70,18 @@ class SignupActivity : AppCompatActivity() {
         }
 
         if(isGoToJoin){
-            //서버로 보내기
+            // 이메일 저장
+            val emailService = RetrofitBuilder()
+                .build()
+                .create(EmailService::class.java)
+
+            val inputEmail = binding.emailEt.text.toString() + "@inu.ac.kr"
+            Log.d("전송 이메일 : ", inputEmail)
+            Store.email = inputEmail
+
             val intent = Intent(this, SignupEmailCheckActivity::class.java)
             startActivity(intent)
+
         }
 
 

@@ -23,58 +23,58 @@ class ProfileUpdate : AppCompatActivity() {
         }
 
         // 단과대
-        val inputCollege = findViewById<Spinner>(R.id.profile_update_age_input)
+        val inputCollege = findViewById<Spinner>(R.id.profile_update_college_input)
         ArrayAdapter.createFromResource(
             this,
-            R.array.age_array,
+            R.array.college_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            inputAge.adapter = adapter
+            inputCollege.adapter = adapter
         }
 
         // 전공
-        val inputMajor = findViewById<Spinner>(R.id.profile_update_age_input)
+        val inputMajor = findViewById<Spinner>(R.id.profile_update_major_input)
         ArrayAdapter.createFromResource(
             this,
-            R.array.age_array,
+            R.array.major_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            inputAge.adapter = adapter
+            inputMajor.adapter = adapter
         }
 
         // 지역
-        val inputRegion = findViewById<Spinner>(R.id.profile_update_age_input)
+        val inputRegion = findViewById<Spinner>(R.id.profile_update_region_input)
         ArrayAdapter.createFromResource(
             this,
-            R.array.age_array,
+            R.array.region_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            inputAge.adapter = adapter
+            inputRegion.adapter = adapter
         }
 
         // 키 & 체형
-        val inputBodyType = findViewById<Spinner>(R.id.profile_update_age_input)
+        val inputBodyType = findViewById<Spinner>(R.id.profile_update_body_type_input)
         ArrayAdapter.createFromResource(
             this,
-            R.array.age_array,
+            R.array.body_type_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            inputAge.adapter = adapter
+            inputBodyType.adapter = adapter
         }
 
         // MBTI
-        val inputMBTI = findViewById<Spinner>(R.id.profile_update_age_input)
+        val inputMBTI = findViewById<Spinner>(R.id.profile_update_mbti_input)
         ArrayAdapter.createFromResource(
             this,
-            R.array.age_array,
+            R.array.mbti_array,
             android.R.layout.simple_spinner_item
         ).also { adapter ->
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            inputAge.adapter = adapter
+            inputMBTI.adapter = adapter
         }
     }
 }

@@ -31,6 +31,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="50dp"
+                    android:layout_marginStart="32dp"
                     android:backgroundTint="#666666"
                     android:background="@drawable/ic_btn_undo"/>
 
@@ -64,9 +65,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tag_description"
                     app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginTop="56dp"
-                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager">
-
-                </androidx.recyclerview.widget.RecyclerView>
+                    android:layout_marginHorizontal="32dp"/>
 
                 <TextView
                     android:id="@+id/tag_selected_tags"

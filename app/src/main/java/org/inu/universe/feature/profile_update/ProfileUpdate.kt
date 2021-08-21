@@ -1,16 +1,27 @@
 package org.inu.universe.feature.profile_update
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import org.inu.universe.R
+import org.inu.universe.feature.tag.TagActivity
 
 class ProfileUpdate : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_update)
 
+        setSpinners()
+        findViewById<TextView>(R.id.profile_update_hashtag_input).setOnClickListener {
+            val intent = Intent(this, TagActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    fun setSpinners() {
         // 나이
         val inputAge = findViewById<Spinner>(R.id.profile_update_age_input)
         ArrayAdapter.createFromResource(

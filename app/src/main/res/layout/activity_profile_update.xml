@@ -11,7 +11,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".feature.profile_update.ProfileUpdate"
+        tools:context=".feature.profile_update.ProfileUpdateActivity"
         android:background="#F7F7F9">
 
         <ScrollView
@@ -199,7 +199,11 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background"
+                    android:text="@{viewModel.nickname}"
+                    android:textColor="#707070"
+                    android:textSize="14sp"
+                    android:textAlignment="center"/>
 
                 <Spinner
                     android:id="@+id/profile_update_age_input"
@@ -211,7 +215,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background" />
 
                 <Spinner
                     android:id="@+id/profile_update_college_input"
@@ -293,10 +297,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background"
+                    android:text="@{viewModel.hashTagList}"
+                    android:textAlignment="center"/>
 
-                <EditText
-                    android:id="@+id/profile_update_introduction_input"
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/profile_update_introduction_card_view"
                     android:layout_width="0dp"
                     android:layout_height="80dp"
                     app:layout_constraintTop_toTopOf="@id/profile_update_introduction"
@@ -306,14 +312,28 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    app:cardCornerRadius="24dp">
+
+                    <EditText
+                        android:id="@+id/profile_update_introduction_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="40dp"
+                        android:background="@color/white"
+                        android:text="@{viewModel.introduction}"
+                        android:textAlignment="textStart"
+                        android:textColor="#707070"
+                        android:textSize="14sp"/>
+                </androidx.cardview.widget.CardView>
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/profile_update_ok"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/profile_update_introduction_input"
+                    app:layout_constraintTop_toBottomOf="@id/profile_update_introduction_card_view"
                     android:layout_marginTop="56dp"
                     android:layout_marginBottom="50dp"
                     android:text="완료"

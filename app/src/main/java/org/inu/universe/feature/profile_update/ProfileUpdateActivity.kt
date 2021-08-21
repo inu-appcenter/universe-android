@@ -6,14 +6,23 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
 import org.inu.universe.R
+import org.inu.universe.databinding.ActivityProfileUpdateBinding
 import org.inu.universe.feature.tag.TagActivity
 
-class ProfileUpdate : AppCompatActivity() {
+class ProfileUpdateActivity : AppCompatActivity() {
+    lateinit var binding: ActivityProfileUpdateBinding
+    val viewModel: ProfileUpdateViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_update)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_profile_update)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
 
+        //viewModel.loadProfileInfo()
         setSpinners()
         findViewById<TextView>(R.id.profile_update_hashtag_input).setOnClickListener {
             val intent = Intent(this, TagActivity::class.java)

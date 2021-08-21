@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Universe"
         android:usesCleartextTraffic="true">
-        <activity android:name=".feature.profile_update.ProfileUpdate"></activity>
+        <activity android:name=".feature.profile_update.ProfileUpdateActivity"></activity>
         <activity android:name=".feature.signup.SignupEmailCheckActivity" />
         <activity android:name=".feature.splash.SplashActivity">
             <intent-filter>

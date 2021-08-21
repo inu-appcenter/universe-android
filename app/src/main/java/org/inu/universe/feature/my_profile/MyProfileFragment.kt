@@ -6,18 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.activity.viewModels
-import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.findViewTreeLifecycleOwner
-import androidx.lifecycle.findViewTreeViewModelStoreOwner
 import org.inu.universe.R
-import org.inu.universe.databinding.ActivitySignupBinding
 import org.inu.universe.databinding.FragmentMyProfileBinding
-import org.inu.universe.feature.profile_update.ProfileUpdate
-import org.inu.universe.feature.signup.SignupViewModel
-import org.inu.universe.global.MyApplication
+import org.inu.universe.feature.profile_update.ProfileUpdateActivity
 
 class MyProfileFragment : Fragment() {
     private lateinit var fragmentMyProfileBinding: FragmentMyProfileBinding
@@ -31,7 +24,7 @@ class MyProfileFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_my_profile, container, false)
 
         view.findViewById<Button>(R.id.my_profile_btn_update).setOnClickListener {
-            val intent = Intent(view.context, ProfileUpdate::class.java)
+            val intent = Intent(view.context, ProfileUpdateActivity::class.java)
             startActivity(intent)
         }
 

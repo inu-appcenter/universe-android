@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         tools:context=".feature.like_list.LikeListActivity">
 
-
         <!-- header -->
 
         <ImageView
@@ -24,7 +23,6 @@
             android:background="@drawable/main_header_background" />
 
         <!-- body -->
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/back_btn"
@@ -47,15 +45,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/back_btn"
             app:layout_constraintStart_toStartOf="@+id/back_btn"
             app:layout_constraintTop_toTopOf="@+id/back_btn" />
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_menu"
-            android:layout_marginEnd="30dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView" />
 
         <ImageView
             android:id="@+id/main_body_background"

@@ -328,6 +328,51 @@
                         android:textSize="14sp"/>
                 </androidx.cardview.widget.CardView>
 
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toTopOf="@id/profile_update_age_input"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_update_age_input"
+                    app:layout_constraintEnd_toEndOf="@id/profile_update_age_input"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toTopOf="@id/profile_update_college_input"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_update_college_input"
+                    app:layout_constraintEnd_toEndOf="@id/profile_update_college_input"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toTopOf="@id/profile_update_major_input"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_update_major_input"
+                    app:layout_constraintEnd_toEndOf="@id/profile_update_major_input"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toTopOf="@id/profile_update_region_input"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_update_region_input"
+                    app:layout_constraintEnd_toEndOf="@id/profile_update_region_input"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toTopOf="@id/profile_update_major_input"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_update_mbti_input"
+                    app:layout_constraintEnd_toEndOf="@id/profile_update_mbti_input"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_drop_down"/>
+
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/profile_update_ok"
                     android:layout_width="match_parent"

@@ -12,7 +12,8 @@
         android:layout_marginEnd="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="오후 2:00"/>
+        android:text="오후 2:00"
+        android:textSize="8sp"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/chat_me_card_view"
@@ -20,7 +21,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:cardCornerRadius="16dp">
+        app:cardCornerRadius="16dp"
+        app:cardElevation="0dp">
 
         <TextView
             android:id="@+id/chat_me_mesaage"

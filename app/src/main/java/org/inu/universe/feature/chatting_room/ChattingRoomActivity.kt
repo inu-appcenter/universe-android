@@ -29,6 +29,16 @@ class ChattingRoomActivity : AppCompatActivity() {
                 drawer.closeDrawer(Gravity.RIGHT)
         })
 
+        setDummyChatList()
+    }
 
+    private fun setDummyChatList() {
+        val chatList = arrayListOf(
+            ChatAdapter.ChatVO("제가 이 앱 만들었어요!!", ChatAdapter.ChatVO.TYPE_MY_MESSAGE, "오후 2:00"),
+            ChatAdapter.ChatVO("근데요?", ChatAdapter.ChatVO.TYPE_YOUR_MESSAGE, "오후 2:00"),
+            ChatAdapter.ChatVO("그냥 그렇다구요...", ChatAdapter.ChatVO.TYPE_MY_MESSAGE, "오후 2:00"),
+            ChatAdapter.ChatVO("상대방이 채팅방을 나갔습니다.", ChatAdapter.ChatVO.TYPE_SYSTEM_MESSAGE, "오후 2:00")
+        )
+        binding.chatTalkList.adapter = ChatAdapter(chatList)
     }
 }

@@ -29,7 +29,9 @@ class MainFragment : Fragment() {
 
         val profiles = view.findViewById<RecyclerView>(R.id.main_profiles)
         profiles?.adapter = ProfilesAdapter(
-            arrayListOf(MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""), MainProfileInfo(""))
+            arrayListOf(ProfilesAdapter.MainProfileInfo(""), ProfilesAdapter.MainProfileInfo(""),
+                ProfilesAdapter.MainProfileInfo(""), ProfilesAdapter.MainProfileInfo("")
+            )
         )
 
         val snapHelper = LinearSnapHelper()

@@ -1,36 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="8dp">
 
     <TextView
-        android:id="@+id/chat_me_time_stamp"
-        app:layout_constraintEnd_toStartOf="@id/chat_me_card_view"
+        android:id="@+id/chat_you_time_stamp"
+        app:layout_constraintStart_toEndOf="@id/chat_you_card_view"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="오후 2:00"/>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/chat_me_card_view"
+        android:id="@+id/chat_you_card_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:cardCornerRadius="16dp">
 
         <TextView
-            android:id="@+id/chat_me_mesaage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#8251FC"
+            android:background="@color/white"
             android:paddingVertical="10dp"
             android:paddingHorizontal="16dp"
-            android:text="민트초코 같이 먹어요~!"
+            android:text="민트초코 맛있어"
             android:textSize="14sp"
-            android:textColor="@color/white" />
+            android:textColor="#4E4E4E" />
     </androidx.cardview.widget.CardView>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,6 +23,6 @@ class ProfilesAdapter(val profiles: List<MainProfileInfo>) : RecyclerView.Adapte
     inner class ProfilesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     }
+    data class MainProfileInfo(val str: String)
 }
 
-data class MainProfileInfo(val str: String)

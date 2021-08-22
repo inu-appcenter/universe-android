@@ -27,7 +27,8 @@ class ChattingRoomActivity : AppCompatActivity() {
                 drawer.openDrawer(Gravity.RIGHT)
             else
                 drawer.closeDrawer(Gravity.RIGHT)
-
         })
+
+
     }
 }

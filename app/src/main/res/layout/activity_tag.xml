@@ -33,7 +33,8 @@
                     android:layout_marginTop="50dp"
                     android:layout_marginStart="32dp"
                     android:backgroundTint="#666666"
-                    android:background="@drawable/ic_btn_undo"/>
+                    android:background="@drawable/ic_btn_undo"
+                    android:onClick="@{()->viewModel.onUndoClick()}"/>
 
                 <TextView
                     android:id="@+id/title_tag"

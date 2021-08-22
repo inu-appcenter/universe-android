@@ -37,7 +37,8 @@
                     android:layout_marginStart="40dp"
                     android:layout_width="17dp"
                     android:layout_height="29dp"
-                    android:src="@drawable/ic_btn_undo"/>
+                    android:src="@drawable/ic_btn_undo"
+                    android:onClick="@{()->viewModel.onUndoClick()}"/>
 
                 <ImageView
                     app:layout_constraintTop_toTopOf="@id/selected_profile_btn_undo"

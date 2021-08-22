@@ -32,7 +32,8 @@
                     android:layout_marginTop="48dp"
                     android:layout_marginStart="40dp"
                     android:backgroundTint="#666666"
-                    android:background="@drawable/ic_btn_undo"/>
+                    android:background="@drawable/ic_btn_undo"
+                    android:onClick="@{()->viewModel.onUndoClick()}"/>
 
                 <TextView
                     android:id="@+id/title_profile_update"

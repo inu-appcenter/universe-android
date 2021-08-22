@@ -8,6 +8,8 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import org.inu.universe.R
 import org.inu.universe.databinding.ActivityProfileUpdateBinding
 import org.inu.universe.feature.tag.TagActivity
@@ -28,6 +30,14 @@ class ProfileUpdateActivity : AppCompatActivity() {
             val intent = Intent(this, TagActivity::class.java)
             startActivity(intent)
         }
+
+        setActivity()
+    }
+
+    fun setActivity() {
+        viewModel.shouldFinish.observe(this, Observer {
+            finish()
+        })
     }
 
     fun setSpinners() {

@@ -40,6 +40,10 @@ class ChattingRoomActivity : AppCompatActivity() {
         viewModel.shouldOpenReportDialog.observe(this, Observer {
             ReportDialog().show(supportFragmentManager, "report")
         })
+
+        viewModel.shouldFinish.observe(this, Observer {
+            finish()
+        })
     }
 
     private fun setDummyChatList() {

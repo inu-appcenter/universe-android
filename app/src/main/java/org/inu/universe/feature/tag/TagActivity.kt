@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ToggleButton
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.inu.universe.R
@@ -24,5 +25,13 @@ class TagActivity : AppCompatActivity() {
         tags.layoutManager = GridLayoutManager(this, 2)
 
         tags.adapter = TagAdapter(listOf("만화", "취준", "운동", "공부", "유튜브"))
+
+        setActivity()
+    }
+
+    fun setActivity() {
+        viewModel.shouldFinish.observe(this, Observer {
+            finish()
+        })
     }
 }

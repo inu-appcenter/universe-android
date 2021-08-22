@@ -14,6 +14,8 @@ class ChattingRoomViewModel : ViewModel() {
     val shouldOpenDrawer = MutableLiveData(false)
     val shouldOpenExitDialog = MutableLiveData<Boolean>()
     val shouldOpenReportDialog = MutableLiveData<Boolean>()
+    val shouldFinish = MutableLiveData<Boolean>()
+
     private val _eventOpenDialog = SingleLiveEvent<Any>()
     val eventOpenDialog: LiveData<Any>
         get() = _eventOpenDialog
@@ -28,5 +30,9 @@ class ChattingRoomViewModel : ViewModel() {
 
     fun onReportClick() {
         shouldOpenReportDialog.postValue(true)
+    }
+
+    fun onUndoClick() {
+        shouldFinish.postValue(true)
     }
 }

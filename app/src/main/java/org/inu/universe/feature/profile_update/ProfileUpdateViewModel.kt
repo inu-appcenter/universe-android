@@ -6,6 +6,8 @@ import org.inu.universe.global.Profile
 import org.inu.universe.global.Store
 
 class ProfileUpdateViewModel : ViewModel() {
+    val shouldFinish = MutableLiveData<Boolean>()
+
     val nickname = MutableLiveData("민초")
     val age = MutableLiveData(21)
     val gender = MutableLiveData("여자")
@@ -30,5 +32,9 @@ class ProfileUpdateViewModel : ViewModel() {
         mbti.postValue(profile.mbti)
         introduction.postValue(profile.introduction)
         //hashTagList.postValue()
+    }
+
+    fun onUndoClick() {
+        shouldFinish.postValue(true)
     }
 }

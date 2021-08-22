@@ -2,7 +2,6 @@ package org.inu.universe.feature.chatting_room
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -21,6 +20,11 @@ class ChattingRoomActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
+        setObserver()
+        setDummyChatList()
+    }
+
+    private fun setObserver() {
         viewModel.shouldOpenDrawer.observe(this, Observer {
             val drawer = findViewById<DrawerLayout>(R.id.chat_drawer)
             if (it)
@@ -29,7 +33,13 @@ class ChattingRoomActivity : AppCompatActivity() {
                 drawer.closeDrawer(Gravity.RIGHT)
         })
 
-        setDummyChatList()
+        viewModel.shouldOpenExitDialog.observe(this, Observer {
+            ExitDialog().show(supportFragmentManager, "exit")
+        })
+
+        viewModel.shouldOpenReportDialog.observe(this, Observer {
+            ReportDialog().show(supportFragmentManager, "report")
+        })
     }
 
     private fun setDummyChatList() {

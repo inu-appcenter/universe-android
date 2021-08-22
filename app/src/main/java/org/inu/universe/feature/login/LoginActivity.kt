@@ -51,13 +51,13 @@ class LoginActivity : AppCompatActivity() {
         val inputEmail = binding.emailEt.text.toString() + "@inu.ac.kr"
         val inputPassword = binding.passwordEt.text.toString()
 
-        val req = LoginRequest("inuappcenter@inu.ac.kr", "universe")
-//      val req = LoginRequest(inputEmail, inputPassword)
+        //val req = LoginRequest("inuappcenter@inu.ac.kr", "universe")
+        val req = LoginRequest(inputEmail, inputPassword)
 
         loginService.requestLogin(req).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful){
-                    Store.jwt = response.headers().get("accessToken")
+                    Store.jwt = "Bearer " + response.headers().get("accessToken")
                     if(Store.jwt != null) {
                         Log.d(TAG, response.code().toString())
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
@@ -79,7 +79,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun getToken() {
-        loginService.getToken(token).enqueue(object  : Callback<ResponseBody> {
+        loginService.getToken(token).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(
                 call: Call<ResponseBody>,
                 response: Response<ResponseBody>

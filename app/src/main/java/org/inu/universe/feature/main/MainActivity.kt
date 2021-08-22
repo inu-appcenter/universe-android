@@ -17,6 +17,10 @@ import org.inu.universe.feature.chatting_list.ChatListFragment
 import org.inu.universe.feature.like_list.LikeListFragment
 import org.inu.universe.feature.my_profile.MyProfileFragment
 import org.inu.universe.global.MyApplication
+import org.inu.universe.global.Store
+import org.inu.universe.model.retrofit.AccountService
+import org.inu.universe.model.retrofit.RetrofitBuilder
+import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     val tabNames = arrayListOf("홈", "하트", "채팅", "프로필")

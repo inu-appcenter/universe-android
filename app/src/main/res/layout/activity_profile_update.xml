@@ -216,7 +216,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background" />
+                    android:background="@drawable/selected_profile_body_background"
+                    android:entries="@array/age_array"/>
 
                 <Spinner
                     android:id="@+id/profile_update_college_input"
@@ -228,7 +229,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background"
+                    android:entries="@array/college_array"/>
 
                 <Spinner
                     android:id="@+id/profile_update_major_input"
@@ -240,7 +242,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background"
+                    android:entries="@array/major_array"/>
 
                 <CheckBox
                     android:id="@+id/selected_profile_graduation_input"
@@ -262,7 +265,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background"
+                    android:entries="@array/region_array"/>
 
                 <Spinner
                     android:id="@+id/profile_update_body_type_input"
@@ -274,7 +278,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background"
+                    android:entries="@array/body_type_array"/>
 
                 <Spinner
                     android:id="@+id/profile_update_mbti_input"
@@ -286,7 +291,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    android:background="@drawable/selected_profile_body_background"/>
+                    android:background="@drawable/selected_profile_body_background"
+                    android:entries="@array/mbti_array"/>
 
                 <TextView
                     android:id="@+id/profile_update_hashtag_input"
@@ -368,7 +374,16 @@
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="10dp"
-                    app:layout_constraintTop_toTopOf="@id/profile_update_major_input"
+                    app:layout_constraintTop_toTopOf="@id/profile_update_body_type_input"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_update_body_type_input"
+                    app:layout_constraintEnd_toEndOf="@id/profile_update_mbti_input"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_drop_down"/>
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="10dp"
+                    app:layout_constraintTop_toTopOf="@id/profile_update_mbti_input"
                     app:layout_constraintBottom_toBottomOf="@id/profile_update_mbti_input"
                     app:layout_constraintEnd_toEndOf="@id/profile_update_mbti_input"
                     android:layout_marginEnd="20dp"

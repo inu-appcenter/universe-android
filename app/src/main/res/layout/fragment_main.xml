@@ -85,7 +85,8 @@
                     android:textColor="@color/white"
                     android:background="@drawable/main_chat_bubble"
                     android:gravity="center"
-                    android:paddingBottom="10dp"/>
+                    android:paddingBottom="10dp"
+                    android:onClick="@{()->viewModel.onMatchingOptionClick()}"/>
 
                 <TextView
                     android:id="@+id/today_uni_left"

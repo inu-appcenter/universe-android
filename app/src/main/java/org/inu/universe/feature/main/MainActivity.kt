@@ -13,6 +13,7 @@ import org.inu.universe.databinding.FragmentMainBinding
 import org.inu.universe.feature.chatting_list.ChatListFragment
 import org.inu.universe.feature.like_list.LikeListFragment
 import org.inu.universe.feature.my_profile.MyProfileFragment
+import org.inu.universe.global.MyApplication
 
 class MainActivity : AppCompatActivity() {
     val tabNames = arrayListOf("홈", "하트", "채팅", "프로필")
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        MyApplication.context = this
         setTab()
     }
 

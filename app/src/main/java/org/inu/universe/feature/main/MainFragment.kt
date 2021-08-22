@@ -47,7 +47,7 @@ class MainFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        viewModel.shouldOpenWeb.observe(this as LifecycleOwner, Observer {
+        viewModel.shouldStartActivity.observe(this as LifecycleOwner, Observer {
             startActivity(it)
         })
     }

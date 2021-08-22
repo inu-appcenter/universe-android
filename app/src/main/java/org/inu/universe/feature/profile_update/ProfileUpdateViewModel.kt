@@ -1,5 +1,6 @@
 package org.inu.universe.feature.profile_update
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.inu.universe.global.Profile
@@ -7,6 +8,7 @@ import org.inu.universe.global.Store
 
 class ProfileUpdateViewModel : ViewModel() {
     val shouldFinish = MutableLiveData<Boolean>()
+    val shouldOpenPhotoDialog = MutableLiveData<Boolean>()
 
     val nickname = MutableLiveData("민초")
     val age = MutableLiveData(21)
@@ -36,5 +38,9 @@ class ProfileUpdateViewModel : ViewModel() {
 
     fun onUndoClick() {
         shouldFinish.postValue(true)
+    }
+
+    fun onPhotoClick() {
+        shouldOpenPhotoDialog.postValue(true)
     }
 }

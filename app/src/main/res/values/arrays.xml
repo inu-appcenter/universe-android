@@ -93,4 +93,9 @@
         <item>욕설</item>
         <item>기타</item>
     </string-array>
+
+    <string-array name="dialog_photo">
+        <item>앨범에서 사진 선택</item>
+        <item>사진 촬영하기</item>
+    </string-array>
 </resources>

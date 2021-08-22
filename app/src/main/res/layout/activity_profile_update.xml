@@ -61,7 +61,8 @@
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/easfa" />
+                        android:src="@drawable/easfa"
+                        android:onClick="@{()->viewModel.onPhotoClick()}" />
                 </androidx.cardview.widget.CardView>
 
                 <!-- left -->
@@ -217,7 +218,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/selected_profile_body_background"
-                    android:entries="@array/age_array"/>
+                    android:entries="@array/age_array"
+                    android:textAlignment="center"/>
 
                 <Spinner
                     android:id="@+id/profile_update_college_input"
@@ -230,7 +232,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/selected_profile_body_background"
-                    android:entries="@array/college_array"/>
+                    android:entries="@array/college_array"
+                    android:textAlignment="center" />
 
                 <Spinner
                     android:id="@+id/profile_update_major_input"
@@ -243,7 +246,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/selected_profile_body_background"
-                    android:entries="@array/major_array"/>
+                    android:entries="@array/major_array"
+                    android:textAlignment="center" />
 
                 <CheckBox
                     android:id="@+id/selected_profile_graduation_input"
@@ -266,7 +270,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/selected_profile_body_background"
-                    android:entries="@array/region_array"/>
+                    android:entries="@array/region_array"
+                    android:textAlignment="center"/>
 
                 <Spinner
                     android:id="@+id/profile_update_body_type_input"
@@ -279,7 +284,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/selected_profile_body_background"
-                    android:entries="@array/body_type_array"/>
+                    android:entries="@array/body_type_array"
+                    android:textAlignment="center"/>
 
                 <Spinner
                     android:id="@+id/profile_update_mbti_input"
@@ -292,7 +298,8 @@
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
                     android:background="@drawable/selected_profile_body_background"
-                    android:entries="@array/mbti_array"/>
+                    android:entries="@array/mbti_array"
+                    android:textAlignment="center"/>
 
                 <TextView
                     android:id="@+id/profile_update_hashtag_input"

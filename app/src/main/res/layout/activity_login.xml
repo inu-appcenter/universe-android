@@ -71,8 +71,19 @@
             android:layout_marginTop="50dp"
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
-            android:background="@drawable/email_et"
-            />
+            android:background="@drawable/email_et" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="@id/email_et"
+            app:layout_constraintBottom_toBottomOf="@id/email_et"
+            app:layout_constraintEnd_toEndOf="@id/email_et"
+            android:layout_marginEnd="32dp"
+            android:text="\@inu.ac.kr"
+            android:textSize="12sp"
+            android:textColor="#666666"/>
+
 
         <EditText
             android:id="@+id/password_et"

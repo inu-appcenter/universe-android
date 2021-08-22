@@ -1,5 +1,6 @@
 package org.inu.universe.feature.signup
 
+import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -62,13 +63,14 @@ class SignupEmailCheckActivity : AppCompatActivity() {
                 }
             })
 
-        val inputCode = binding.inputAuthenticationCode.text.toString()
         binding.emailCheckCheckBtn.setOnClickListener {
+            val inputCode = binding.inputAuthenticationCode.text.toString()
             emailService.requestAuthentication(EmailAuthenticationRequest(Store.email!!, inputCode))
                 .enqueue(object: Callback<Unit> {
                     override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                         if(response.isSuccessful) {
                             Log.d("이메일 인증", "성공" + response.code())
+                            setResult(Activity.RESULT_OK)
                             finish()
                         }
                         else {

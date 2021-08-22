@@ -11,7 +11,7 @@ interface EmailService {
     ) : Call<Unit>
 
     @Headers("Accept: application/json", "Content-type: application/json")
-    @GET("email/auth")
+    @POST("email/auth")
     fun requestAuthentication(
         @Body data:EmailAuthenticationRequest
     ) : Call<Unit>

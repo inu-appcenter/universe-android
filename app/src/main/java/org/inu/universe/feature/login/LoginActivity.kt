@@ -51,17 +51,17 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun login() {
-        val textId = binding.emailEt.text.toString()
-        val textPw = binding.passwordEt.text.toString()
+        val inputEmail = binding.emailEt.text.toString() + "@inu.ac.kr"
+        val inputPassword = binding.passwordEt.text.toString()
 
-        val req = LoginRequest("inuappcenter@inu.ac.kr", "universe") // LoginRequest(textId, textPw)
+        val req = LoginRequest(inputEmail, inputPassword) // LoginRequest("inuappcenter", "universe")
 
         loginService.requestLogin(req).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
                 if (response.isSuccessful){
                     Store.jwt = response.headers().get("accessToken")
                     if(Store.jwt != null)
-                        Log.d("jwt 저장 완료", response.headers().toString())
+                        Log.d("로그인 성공 !! ", response.code().toString())
                 } else {
                     Toast.makeText(this@LoginActivity, "실패", Toast.LENGTH_SHORT).show()
                     Log.e("response code : ", response.code().toString())

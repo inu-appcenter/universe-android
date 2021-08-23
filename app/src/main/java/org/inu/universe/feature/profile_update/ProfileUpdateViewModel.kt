@@ -1,10 +1,13 @@
 package org.inu.universe.feature.profile_update
 
+import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.inu.universe.global.Profile
 import org.inu.universe.global.Store
+import org.inu.universe.model.retrofit.ProfileService
+import org.inu.universe.model.retrofit.RetrofitBuilder
 
 class ProfileUpdateViewModel : ViewModel() {
     val shouldFinish = MutableLiveData<Boolean>()
@@ -30,5 +33,10 @@ class ProfileUpdateViewModel : ViewModel() {
 
     fun onPhotoClick() {
         shouldOpenPhotoDialog.postValue(true)
+    }
+
+    fun onFinishClick() {
+        val profileService = RetrofitBuilder().build().create(ProfileService::class.java)
+        //shouldFinish.postValue(true)
     }
 }

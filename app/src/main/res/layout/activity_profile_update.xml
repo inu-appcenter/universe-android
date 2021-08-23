@@ -332,7 +332,8 @@
                     android:layout_marginTop="40dp"
                     android:layout_marginStart="32dp"
                     android:layout_marginEnd="40dp"
-                    app:cardCornerRadius="24dp">
+                    app:cardCornerRadius="24dp"
+                    app:cardElevation="0dp">
 
                     <EditText
                         android:id="@+id/profile_update_introduction_input"
@@ -414,7 +415,8 @@
                     android:textColor="@color/white"
                     android:backgroundTint="#8251FC"
                     android:background="@drawable/selected_profile_body_background"
-                    android:layout_marginHorizontal="40dp"/>
+                    android:layout_marginHorizontal="40dp"
+                    android:onClick="@{()->viewModel.onFinishClick()}"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

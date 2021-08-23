@@ -3,7 +3,10 @@ package org.inu.universe.feature.initializing_profile
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.webkit.GeolocationPermissions
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
@@ -30,6 +33,7 @@ class InitializingProfileActivity : AppCompatActivity() {
         binding.viewModel = viewModel
 
         binding.initializationFinish.setOnClickListener { postProfile() }
+        binding.initializationCollegeInput.onItemSelectedListener = OnSelectedCollegeItem()
     }
 
     override fun onBackPressed() {
@@ -72,5 +76,27 @@ class InitializingProfileActivity : AppCompatActivity() {
                     t.printStackTrace()
                 }
             })
+    }
+
+    inner class OnSelectedCollegeItem : AdapterView.OnItemSelectedListener {
+        private val colleges = arrayListOf(
+            R.array.administration_array, R.array.engineering_array, R.array.global_array, R.array.no_college_array,
+            R.array.urban_array, R.array.education_array, R.array.social_sciences_array, R.array.bioscience_array, R.array.art_sports_array,
+            R.array.liberal_arts_array, R.array.nature_array, R.array.information_technology_array)
+
+        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            ArrayAdapter.createFromResource(
+                this@InitializingProfileActivity,
+                colleges[position],
+                android.R.layout.simple_spinner_item
+            ).also { adapter ->
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.initializationMajorInput.adapter = adapter
+            }
+        }
+
+        override fun onNothingSelected(p0: AdapterView<*>?) {
+
+        }
     }
 }

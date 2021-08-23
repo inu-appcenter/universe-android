@@ -35,6 +35,8 @@
         <item>정보기술대학</item>
     </string-array>
 
+    <!-- 단과대학 -->
+
     <string-array name="major_array">
         <item>단과대를 먼저 선택해 주세요.</item>
     </string-array>
@@ -147,6 +149,7 @@
     </string-array>
 
     <string-array name="region_array">
+        <item></item>
         <item>서울</item>
         <item>인천</item>
         <item>광주</item>
@@ -163,6 +166,7 @@
     </string-array>
 
     <string-array name="body_type_array">
+        <item></item>
         <item>마름</item>
         <item>보통</item>
         <item>통통</item>
@@ -170,6 +174,7 @@
     </string-array>
 
     <string-array name="mbti_array">
+        <item></item>
         <item>ESTJ</item>
         <item>ESTP</item>
         <item>ESFJ</item>

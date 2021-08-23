@@ -62,16 +62,17 @@ class MainActivity : AppCompatActivity() {
         tabs.getTabAt(0)?.setIcon(tabOutlineIcons[0])
         tabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
-                tabs.getTabAt(tab!!.position)?.setIcon(tabFilledIcons[tab!!.position])
+                tabs.getTabAt(tab!!.position)?.setIcon(tabFilledIcons[tab.position])
             }
 
             override fun onTabUnselected(tab: TabLayout.Tab?) {
-                tabs.getTabAt(tab!!.position)?.setIcon(tabOutlineIcons[tab!!.position])
+                tabs.getTabAt(tab!!.position)?.setIcon(tabOutlineIcons[tab.position])
             }
             override fun onTabReselected(tab: TabLayout.Tab?) {}
         })
 
-        (0 until 4).forEach {
+        tabs.getTabAt(0)?.setIcon(tabFilledIcons[0])
+        (1 until 4).forEach {
             tabs.getTabAt(it)?.setIcon(tabOutlineIcons[it])
         }
     }

@@ -4,6 +4,7 @@ data class Profile(
     val nickName:String,
     val age:Int,
     val gender: String,
+    val college: String,
     val major: String,
     val militaryStatus: Boolean?,
     val region: String?,

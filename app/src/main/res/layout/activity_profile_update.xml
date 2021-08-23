@@ -91,7 +91,7 @@
                     android:textColor="#666666"/>
 
                 <TextView
-                    android:id="@+id/profile_update_gander"
+                    android:id="@+id/profile_update_gender"
                     app:layout_constraintTop_toBottomOf="@id/profile_update_age"
                     app:layout_constraintStart_toStartOf="@id/profile_update_nickname"
                     android:layout_marginTop="28dp"
@@ -103,7 +103,7 @@
 
                 <TextView
                     android:id="@+id/profile_update_college"
-                    app:layout_constraintTop_toBottomOf="@id/profile_update_gander"
+                    app:layout_constraintTop_toBottomOf="@id/profile_update_gender"
                     app:layout_constraintStart_toStartOf="@id/profile_update_nickname"
                     android:layout_marginTop="28dp"
                     android:layout_width="56dp"
@@ -124,19 +124,8 @@
                     android:textColor="#666666"/>
 
                 <TextView
-                    android:id="@+id/profile_update_graduation"
-                    app:layout_constraintTop_toBottomOf="@id/profile_update_major"
-                    app:layout_constraintStart_toStartOf="@id/profile_update_nickname"
-                    android:layout_marginTop="28dp"
-                    android:layout_width="56dp"
-                    android:layout_height="wrap_content"
-                    android:text="졸업유무"
-                    android:textSize="14sp"
-                    android:textColor="#666666"/>
-
-                <TextView
                     android:id="@+id/profile_update_region"
-                    app:layout_constraintTop_toBottomOf="@id/profile_update_graduation"
+                    app:layout_constraintTop_toBottomOf="@id/profile_update_major"
                     app:layout_constraintStart_toStartOf="@id/profile_update_nickname"
                     android:layout_marginTop="28dp"
                     android:layout_width="56dp"
@@ -221,6 +210,33 @@
                     android:entries="@array/age_array"
                     android:textAlignment="center"/>
 
+                <RadioGroup
+                    app:layout_constraintTop_toTopOf="@id/profile_update_gender"
+                    app:layout_constraintBottom_toBottomOf="@id/profile_update_gender"
+                    app:layout_constraintStart_toEndOf="@id/profile_update_gender"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/profile_update_male"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:text="남성"
+                        android:textAlignment="center"
+                        android:checked="true"/>
+
+                    <RadioButton
+                        android:id="@+id/profile_update_female"
+                        android:layout_width="120dp"
+                        android:layout_height="40dp"
+                        android:text="여성"
+                        android:textAlignment="center"/>
+                </RadioGroup>
+
                 <Spinner
                     android:id="@+id/profile_update_college_input"
                     android:layout_width="0dp"
@@ -248,16 +264,6 @@
                     android:background="@drawable/selected_profile_body_background"
                     android:entries="@array/major_array"
                     android:textAlignment="center" />
-
-                <CheckBox
-                    android:id="@+id/selected_profile_graduation_input"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/profile_update_graduation"
-                    app:layout_constraintBottom_toBottomOf="@id/profile_update_graduation"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    android:layout_marginEnd="40dp"
-                    android:checked="false"/>
 
                 <Spinner
                     android:id="@+id/profile_update_region_input"

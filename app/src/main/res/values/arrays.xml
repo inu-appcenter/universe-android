@@ -40,16 +40,105 @@
     </string-array>
 
     <string-array name="administration_array">
-        <item>디자인학부</item>
-        <item>컴퓨터공학부</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>경영학부</item>
+        <item>세무회계학과</item>
+        <item>테크노경영학과</item>
     </string-array>
 
+    <string-array name="engineering_array">
+        <item>기계공학과</item>
+        <item>메카트로닉스공학과</item>
+        <item>산업경영공학과</item>
+        <item>신소재공학과</item>
+        <item>안전공학과</item>
+        <item>에너지화학공학과</item>
+        <item>융합기계공학과</item>
+        <item>융합시스템공학과</item>
+        <item>전기공학과</item>
+        <item>전자공학과</item>
+    </string-array>
+
+    <string-array name="global_array">
+        <item>경제학과</item>
+        <item>글로벌무역물류학과</item>
+        <item>무역학부</item>
+        <item>소비자학과</item>
+        <item>정치외교학과</item>
+        <item>행정학과</item>
+    </string-array>
+
+    <string-array name="no_college_array">
+        <item>동북아국제통상학부</item>
+        <item>동북아통상전공</item>
+        <item>법학부</item>
+        <item>한국통상전공</item>
+    </string-array>
+
+    <string-array name="urban_array">
+        <item>건설환경공학전공</item>
+        <item>건축공학전공</item>
+        <item>도시건설공학과</item>
+        <item>도시건축학부</item>
+        <item>도시건축학전공</item>
+        <item>도시공학과</item>
+        <item>도시시스템공학과</item>
+        <item>도시행정학과</item>
+        <item>도시환경공학부</item>
+        <item>환경공학전공</item>
+    </string-array>
+
+    <string-array name="education_array">
+        <item>국어교육과</item>
+        <item>수학교육과</item>
+        <item>영어교육과</item>
+        <item>유아교육과</item>
+        <item>윤리교육과</item>
+        <item>일어교육과</item>
+        <item>체육교육과</item>
+    </string-array>
+
+    <string-array name="social_sciences_array">
+        <item>문천정보학과</item>
+        <item>사회복지학과</item>
+        <item>신문방송학과</item>
+        <item>창의인재개발학과</item>
+    </string-array>
+
+    <string-array name="bioscience_array">
+        <item>나노바이오전공</item>
+        <item>분자의생명전공</item>
+        <item>생명공학부</item>
+        <item>생명공학전공</item>
+        <item>생명과학부</item>
+        <item>생명과학전공</item>
+    </string-array>
+
+    <string-array name="art_sports_array">
+        <item>공연예술학과</item>
+        <item>디자인학부</item>
+        <item>서양화전공</item>
+        <item>운동건강학부</item>
+        <item>조형예술학부</item>
+        <item>체육학부</item>
+        <item>한국화전공</item>
+    </string-array>
+
+    <string-array name="liberal_arts_array">
+        <item>국어국문학과</item>
+        <item>독어독문학과</item>
+        <item>불어불문학과</item>
+        <item>영어영문학과</item>
+        <item>일어일문학과</item>
+        <item>중어중국학과</item>
+    </string-array>
+
+    <string-array name="nature_array">
+        <item>물리학과</item>
+        <item>수학과</item>
+        <item>패션산업학과</item>
+        <item>해양학과</item>
+        <item>화학과</item>
+    </string-array>
 
     <string-array name="information_technology_array">
         <item>임베디드시스템공학과</item>

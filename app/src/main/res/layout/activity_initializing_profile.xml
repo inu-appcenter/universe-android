@@ -111,12 +111,15 @@
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/initialization_male"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:text="남성"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:checked="true"/>
 
             <RadioButton
+                android:id="@+id/initialization_female"
                 android:layout_width="120dp"
                 android:layout_height="40dp"
                 android:text="여성"
@@ -159,7 +162,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="40dp"
             android:background="@drawable/initializing_profile_et"
-            android:entries="@array/major_array"
+            android:entries="@array/information_technology_array"
             android:textAlignment="center"/>
 
         <!-- drop down -->
@@ -200,6 +203,7 @@
             app:cardCornerRadius="30dp">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/initialization_finish"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#8251FC"

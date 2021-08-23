@@ -57,37 +57,5 @@ class MainFragment : Fragment() {
         viewModel.shouldStartActivity.observe(this as LifecycleOwner, Observer {
             startActivity(it)
         })
-
-        verifyAndStartActivity()
-    }
-
-    // 만약 초기 프로필 설정이 안 되어 있다면 설정 화면으로 넘어감
-    fun verifyAndStartActivity() {
-        val accountService = RetrofitBuilder().build().create(AccountService::class.java)
-        if (Store.jwt != null) {
-            accountService.requestIds(Store.jwt!!)
-                .enqueue(object : retrofit2.Callback<AccountIds> {
-                    override fun onResponse(
-                        call: Call<AccountIds>,
-                        response: Response<AccountIds>
-                    ) {
-                        if (response.isSuccessful) {
-                            Store.profileId = response.body()?.profileId
-
-                            if (Store.profileId.equals("empty")) {
-                                val intent = Intent(context, InitializingProfileActivity::class.java)
-                                startActivity(intent)
-                            }
-                        } else {
-                            Log.e("id 가져오기", response.code().toString())
-                        }
-                    }
-
-                    override fun onFailure(call: Call<AccountIds>, t: Throwable) {
-                        Log.e("id 가져오기", "onFailure")
-                        t.printStackTrace()
-                    }
-                })
-        }
     }
 }

@@ -2,6 +2,7 @@ package org.inu.universe.feature.main
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -14,12 +15,16 @@ import com.google.android.material.tabs.TabLayoutMediator
 import org.inu.universe.R
 import org.inu.universe.databinding.FragmentMainBinding
 import org.inu.universe.feature.chatting_list.ChatListFragment
+import org.inu.universe.feature.initializing_profile.InitializingProfileActivity
 import org.inu.universe.feature.like_list.LikeListFragment
 import org.inu.universe.feature.my_profile.MyProfileFragment
 import org.inu.universe.global.MyApplication
 import org.inu.universe.global.Store
+import org.inu.universe.model.retrofit.AccountIds
 import org.inu.universe.model.retrofit.AccountService
 import org.inu.universe.model.retrofit.RetrofitBuilder
+import retrofit2.Call
+import retrofit2.Response
 import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
@@ -41,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
         MyApplication.context = this
         setTab()
+        verifyAndStartActivity()
     }
 
     fun setTab() {
@@ -81,4 +87,37 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    // 만약 초기 프로필 설정이 안 되어 있다면 설정 화면으로 넘어감
+    private fun verifyAndStartActivity() {
+        val accountService = RetrofitBuilder().build().create(AccountService::class.java)
+        if (Store.jwt != null) {
+            accountService.requestIds(Store.jwt!!)
+                .enqueue(object : retrofit2.Callback<AccountIds> {
+                    override fun onResponse(
+                        call: Call<AccountIds>,
+                        response: Response<AccountIds>
+                    ) {
+                        if (response.isSuccessful) {
+                            Store.profileId = response.body()?.profileId
+
+                            if (Store.profileId.equals("empty")) {
+                                val intent = Intent(this@MainActivity, InitializingProfileActivity::class.java)
+                                startActivity(intent)
+                            }
+                        } else {
+                            Log.e("id 가져오기", response.code().toString())
+                        }
+                    }
+
+                    override fun onFailure(call: Call<AccountIds>, t: Throwable) {
+                        Log.e("id 가져오기", "onFailure")
+                        t.printStackTrace()
+                    }
+                })
+        }
+    }
+
+    // 유저 정보 가져오기
+
 }

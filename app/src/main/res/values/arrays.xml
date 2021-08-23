@@ -36,14 +36,25 @@
     </string-array>
 
     <string-array name="major_array">
-        <item>Mercury</item>
-        <item>Venus</item>
+        <item>단과대를 먼저 선택해 주세요.</item>
+    </string-array>
+
+    <string-array name="administration_array">
+        <item>디자인학부</item>
+        <item>컴퓨터공학부</item>
         <item>Earth</item>
         <item>Mars</item>
         <item>Jupiter</item>
         <item>Saturn</item>
         <item>Uranus</item>
         <item>Neptune</item>
+    </string-array>
+
+
+    <string-array name="information_technology_array">
+        <item>임베디드시스템공학과</item>
+        <item>정보통신공학과</item>
+        <item>컴퓨터공학부</item>
     </string-array>
 
     <string-array name="region_array">

@@ -37,5 +37,7 @@ class MyProfileFragment : Fragment() {
         fragmentMyProfileBinding = binding
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        viewModel.loadProfile()
     }
 }

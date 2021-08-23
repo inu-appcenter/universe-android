@@ -75,7 +75,7 @@
                     app:layout_constraintStart_toEndOf="@id/my_profile_photo"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginTop="48dp"
-                    android:text="민초 / 24, 여"
+                    android:text="@{viewModel.nickname + ` / ` + viewModel.age + `, ` + viewModel.gender}"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     android:textStyle="bold"/>
@@ -87,7 +87,7 @@
                     app:layout_constraintTop_toBottomOf="@id/my_profile_info"
                     app:layout_constraintStart_toStartOf="@id/my_profile_info"
                     android:layout_marginTop="8dp"
-                    android:text="공연예술학부"
+                    android:text="@{viewModel.major}"
                     android:textSize="16sp"
                     android:textColor="@color/white"/>
 
@@ -206,7 +206,7 @@
                         android:layout_marginTop="36dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{viewModel.tall + ` / ` + viewModel.bodyType}"
+                        android:text="@{viewModel.height + ` / ` + viewModel.bodyType}"
                         android:textSize="14sp"
                         android:textColor="#707070"/>
 

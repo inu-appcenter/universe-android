@@ -19,9 +19,11 @@ import org.inu.universe.feature.initializing_profile.InitializingProfileActivity
 import org.inu.universe.feature.like_list.LikeListFragment
 import org.inu.universe.feature.my_profile.MyProfileFragment
 import org.inu.universe.global.MyApplication
+import org.inu.universe.global.Profile
 import org.inu.universe.global.Store
 import org.inu.universe.model.retrofit.AccountIds
 import org.inu.universe.model.retrofit.AccountService
+import org.inu.universe.model.retrofit.ProfileService
 import org.inu.universe.model.retrofit.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Response
@@ -117,7 +119,4 @@ class MainActivity : AppCompatActivity() {
                 })
         }
     }
-
-    // 유저 정보 가져오기
-
 }

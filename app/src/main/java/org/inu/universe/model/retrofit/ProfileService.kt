@@ -15,6 +15,6 @@ interface ProfileService {
     @GET("profile/{profileId}")
     fun getProfile(
         @Header("Authorization") token: String,
-        @Path("profileId") profileId: Int
+        @Path("profileId") profileId: String
     ) : Call<Profile>
 }

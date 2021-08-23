@@ -100,6 +100,29 @@
             android:background="@drawable/initializing_profile_et"
             android:textAlignment="center"/>
 
+        <RadioGroup
+            app:layout_constraintTop_toTopOf="@id/initialization_gender"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_gender"
+            app:layout_constraintStart_toEndOf="@id/initialization_gender"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="40dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:text="남성"
+                android:textAlignment="center"/>
+
+            <RadioButton
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:text="여성"
+                android:textAlignment="center"/>
+        </RadioGroup>
+
         <Spinner
             android:id="@+id/initialization_age_input"
             android:layout_width="0dp"

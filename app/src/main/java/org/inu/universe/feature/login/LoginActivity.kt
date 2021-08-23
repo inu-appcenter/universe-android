@@ -51,8 +51,8 @@ class LoginActivity : AppCompatActivity() {
         val inputEmail = binding.emailEt.text.toString() + "@inu.ac.kr"
         val inputPassword = binding.passwordEt.text.toString()
 
-        val req = LoginRequest("inuappcenter@inu.ac.kr", "universe")
-        //val req = LoginRequest(inputEmail, inputPassword)
+        //val req = LoginRequest("inuappcenter@inu.ac.kr", "universe")
+        val req = LoginRequest(inputEmail, inputPassword)
 
         loginService.requestLogin(req).enqueue(object : Callback<Unit> {
             override fun onResponse(call: Call<Unit>, response: Response<Unit>) {

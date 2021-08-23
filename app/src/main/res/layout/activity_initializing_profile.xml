@@ -13,96 +13,178 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#F7F7F9"
-        tools:context=".feature.initializing_profile.InitializingProfileActivity">
+        tools:context=".feature.initializing_profile.InitializingProfileActivity"
+        android:paddingHorizontal="40dp">
 
         <TextView
-            android:id="@+id/profile_setting_tv"
+            android:id="@+id/title_initialization"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="프로필 설정"
-            android:textColor="#666666"
-            android:textSize="20sp"
-            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginTop="40dp"
+            android:text="프로필 설정"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#666666"/>
+
+        <!-- left -->
 
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/initialization_nickname"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="200dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:text="중복된 닉네임입니다."
-            android:layout_margin="10dp"
-            android:textColor="#FF732AFD"
-            app:layout_constraintBottom_toTopOf="@+id/nickName_et"
-            app:layout_constraintStart_toStartOf="@+id/nickName_et" />
+            android:text="닉네임"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
 
+        <TextView
+            android:id="@+id/initialization_gender"
+            app:layout_constraintTop_toBottomOf="@id/initialization_nickname"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="36dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="성별"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/initialization_age"
+            app:layout_constraintTop_toBottomOf="@id/initialization_gender"
+            app:layout_constraintStart_toStartOf="@id/initialization_nickname"
+            android:layout_marginTop="36dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="나이"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/initialization_college"
+            app:layout_constraintTop_toBottomOf="@id/initialization_age"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="36dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="단과대"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/initialization_major"
+            app:layout_constraintTop_toBottomOf="@id/initialization_college"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="36dp"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="학과"
+            android:textColor="#666666"
+            android:textSize="14sp"/>
+
+        <!-- right -->
 
         <EditText
-            android:id="@+id/nickName_et"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/initalizing_profile_et"
-            android:hint="닉네임"
-            android:paddingStart="20dp"
-            android:textSize="15sp"
-            android:textColorHint="#999999"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/age_et"
-            android:layout_width="180dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/initalizing_profile_et"
-            android:hint="나이"
-            android:paddingStart="20dp"
-            android:textSize="15sp"
-            android:textColorHint="#999999"
-            app:layout_constraintStart_toStartOf="@+id/nickName_et"
-            app:layout_constraintTop_toBottomOf="@+id/nickName_et" />
+            android:id="@+id/initialization_nickname_input"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/initialization_nickname"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_nickname"
+            app:layout_constraintStart_toEndOf="@id/initialization_nickname"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/initializing_profile_et"
+            android:textAlignment="center"/>
 
         <Spinner
-            android:id="@+id/gender_Spinner"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:entries="@array/gender"
-            android:spinnerMode="dropdown"
-            android:background="@drawable/initalizing_profile_et"
-            android:paddingStart="15dp"
-            app:layout_constraintBottom_toBottomOf="@+id/age_et"
-            app:layout_constraintEnd_toEndOf="@+id/nickName_et"
-            app:layout_constraintTop_toTopOf="@+id/age_et" />
+            android:id="@+id/initialization_age_input"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/initialization_age"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_age"
+            app:layout_constraintStart_toEndOf="@id/initialization_age"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/initializing_profile_et"
+            android:entries="@array/age_array"
+            android:textAlignment="center"/>
 
         <Spinner
-            android:id="@+id/department_Spinner"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:entries="@array/department"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/initalizing_profile_et"
-            android:paddingStart="15dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/gender_Spinner" />
+            android:id="@+id/initialization_college_input"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/initialization_college"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_college"
+            app:layout_constraintStart_toEndOf="@id/initialization_college"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/initializing_profile_et"
+            android:entries="@array/college_array"
+            android:textAlignment="center"/>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/setting_btn"
+        <Spinner
+            android:id="@+id/initialization_major_input"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            app:layout_constraintTop_toTopOf="@id/initialization_major"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_major"
+            app:layout_constraintStart_toEndOf="@id/initialization_major"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="40dp"
+            android:background="@drawable/initializing_profile_et"
+            android:entries="@array/major_array"
+            android:textAlignment="center"/>
+
+        <!-- drop down -->
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="8dp"
+            app:layout_constraintTop_toTopOf="@id/initialization_age_input"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_age_input"
+            app:layout_constraintEnd_toEndOf="@id/initialization_age_input"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_drop_down"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="8dp"
+            app:layout_constraintTop_toTopOf="@id/initialization_college_input"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_college_input"
+            app:layout_constraintEnd_toEndOf="@id/initialization_college_input"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_drop_down"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="8dp"
+            app:layout_constraintTop_toTopOf="@id/initialization_major_input"
+            app:layout_constraintBottom_toBottomOf="@id/initialization_major_input"
+            app:layout_constraintEnd_toEndOf="@id/initialization_major_input"
+            android:layout_marginEnd="14dp"
+            android:src="@drawable/ic_drop_down"/>
+
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginTop="200dp"
-            android:layout_marginEnd="50dp"
-            android:background="@drawable/initalizing_profile_button"
-            android:text="완료"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/department_Spinner" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="100dp"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="30dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#8251FC"
+                android:text="완료"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

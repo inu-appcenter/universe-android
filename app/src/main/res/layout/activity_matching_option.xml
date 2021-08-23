@@ -62,7 +62,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="40dp"
-            android:background="@drawable/initalizing_profile_et"
+            android:background="@drawable/initializing_profile_et"
             app:layout_constraintBottom_toBottomOf="@+id/local_tv"
             app:layout_constraintStart_toEndOf="@+id/local_tv"
             app:layout_constraintTop_toTopOf="@+id/local_tv"
@@ -135,7 +135,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="40dp"
-            android:background="@drawable/initalizing_profile_et"
+            android:background="@drawable/initializing_profile_et"
             android:entries="@array/age_array"
             android:textAlignment="center"/>
 
@@ -159,7 +159,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="40dp"
-            android:background="@drawable/initalizing_profile_et"
+            android:background="@drawable/initializing_profile_et"
             android:entries="@array/college_array"
             android:textAlignment="center"/>
 

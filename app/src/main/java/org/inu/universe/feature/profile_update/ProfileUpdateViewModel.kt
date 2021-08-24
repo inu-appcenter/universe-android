@@ -34,9 +34,4 @@ class ProfileUpdateViewModel : ViewModel() {
     fun onPhotoClick() {
         shouldOpenPhotoDialog.postValue(true)
     }
-
-    fun onFinishClick() {
-        val profileService = RetrofitBuilder().build().create(ProfileService::class.java)
-        //shouldFinish.postValue(true)
-    }
 }

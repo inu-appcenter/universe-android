@@ -6,12 +6,12 @@ data class Profile(
     val gender: String,
     val college: String,
     val major: String,
-    val militaryStatus: Boolean?,
     val region: String?,
     val height: String?,
     val bodyType: String?,
     val mbti: String?,
     val introduction: String?,
-    val hashTagList: List<String>?
+    val hashTagList: List<String>?,
+    val profilePrivate: Boolean?
 )
 

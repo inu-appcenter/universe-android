@@ -339,9 +339,6 @@
                         android:id="@+id/profile_update_introduction_input"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginTop="40dp"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginEnd="40dp"
                         android:background="@color/white"
                         android:text="@{viewModel.introduction}"
                         android:textAlignment="textStart"
@@ -416,7 +413,7 @@
                     android:backgroundTint="#8251FC"
                     android:background="@drawable/selected_profile_body_background"
                     android:layout_marginHorizontal="40dp"
-                    android:onClick="@{()->viewModel.onFinishClick()}"/>
+                    android:onClick="onFinishClick"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </ScrollView>
     </androidx.constraintlayout.widget.ConstraintLayout>

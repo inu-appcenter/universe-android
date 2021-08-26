@@ -41,6 +41,9 @@ android {
     }
 }
 
+
+
+
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -63,4 +66,7 @@ dependencies {
     // glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
+
+    // toggleButton
+    implementation 'com.nex3z:toggle-button-group:1.2.3'
 }

@@ -73,7 +73,7 @@
 
         <TextView
             android:id="@+id/gender_tv"
-            android:layout_width="wrap_content"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="성별"
             android:textSize="12sp"
@@ -93,38 +93,27 @@
             app:layout_constraintTop_toTopOf="@+id/gender_tv"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="10dp"
-            app:tbgCheckedButton="@+id/woman_btn"
-            tools:ignore="MissingConstraints">
-
+            android:layout_marginEnd="40dp"
+            app:tbgCheckedButton="@id/btn_male">
 
             <com.nex3z.togglebuttongroup.button.LabelToggle
-                android:id="@+id/woman_btn"
-                android:layout_width="100dp"
+                android:id="@+id/btn_male"
+                android:layout_width="76dp"
                 android:layout_height="35dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
                 android:text="남성"
-                app:tbgMarkerColor="#4FDAE2"
-
-                />
-
+                app:tbgMarkerColor="#4FDAE2" />
 
             <com.nex3z.togglebuttongroup.button.LabelToggle
-                android:id="@+id/man_btn"
-                android:layout_width="100dp"
+                android:id="@+id/btn_female"
+                android:layout_width="76dp"
                 android:layout_height="35dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
                 android:text="여성"
                 app:tbgMarkerColor="#4FDAE2" />
 
             <com.nex3z.togglebuttongroup.button.LabelToggle
-                android:id="@+id/unrelevance_btn"
-                android:layout_width="100dp"
+                android:id="@+id/btn_irrelevance"
+                android:layout_width="76dp"
                 android:layout_height="35dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
                 android:text="무관"
                 app:tbgMarkerColor="#4FDAE2" />
 

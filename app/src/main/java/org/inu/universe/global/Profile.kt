@@ -13,5 +13,24 @@ data class Profile(
     val introduction: String?,
     val hashTagList: List<String>?,
     val profilePrivate: Boolean?
-)
+
+
+) {
+    override fun toString(): String {
+        return "{" +
+                "nickName: $nickName," +
+                "age: $age," +
+                "gender: $gender," +
+                "college: $college," +
+                "major: $major," +
+                "region: $region," +
+                "height: $height," +
+                "bodyType: $bodyType," +
+                "mbti: $mbti," +
+                "introduction: $introduction," +
+                "hashTagList:," +
+                "profilePrivate: false" +
+                "}"
+    }
+}
 

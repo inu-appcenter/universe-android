@@ -20,6 +20,10 @@ import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
+import com.google.gson.Gson
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.inu.universe.R
 import org.inu.universe.databinding.ActivityProfileUpdateBinding
 import org.inu.universe.feature.login.LoginActivity
@@ -30,6 +34,7 @@ import org.inu.universe.model.retrofit.ProfileService
 import org.inu.universe.model.retrofit.RetrofitBuilder
 import retrofit2.Call
 import retrofit2.Response
+import java.io.File
 import java.lang.Exception
 import javax.security.auth.callback.Callback
 
@@ -37,10 +42,6 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
     lateinit var binding: ActivityProfileUpdateBinding
     val viewModel: ProfileUpdateViewModel by viewModels()
     lateinit var resultLauncher: ActivityResultLauncher<Intent>
-    private val colleges = arrayListOf(
-        R.array.administration_array, R.array.engineering_array, R.array.global_array, R.array.no_college_array,
-        R.array.urban_array, R.array.education_array, R.array.social_sciences_array, R.array.bioscience_array, R.array.art_sports_array,
-        R.array.liberal_arts_array, R.array.nature_array, R.array.information_technology_array)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,6 +52,10 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
         binding.profileUpdateHashtagInput.setOnClickListener {
             val intent = Intent(this, TagActivity::class.java)
             startActivity(intent)
+        }
+
+        binding.profileUpdateOk.setOnClickListener {
+            onFinishClick(binding.profileUpdateOk)
         }
 
         subscribe()
@@ -71,6 +76,11 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
     }
 
     inner class OnSelectedCollegeItem : AdapterView.OnItemSelectedListener {
+        private val colleges = arrayListOf(
+            R.array.administration_array, R.array.engineering_array, R.array.global_array, R.array.no_college_array,
+            R.array.urban_array, R.array.education_array, R.array.social_sciences_array, R.array.bioscience_array, R.array.art_sports_array,
+            R.array.liberal_arts_array, R.array.nature_array, R.array.information_technology_array)
+
         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
             ArrayAdapter.createFromResource(
                 this@ProfileUpdateActivity,
@@ -79,7 +89,6 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
             ).also { adapter ->
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 binding.profileUpdateMajorInput.adapter = adapter
-                Log.d("셀렉티드 아이템", binding.profileUpdateMajorInput.adapter.count.toString())
             }
         }
 
@@ -114,10 +123,8 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
     }
 
     private fun setSpinner(spinner: Spinner, value: String) {
-        Log.d("스피너 세팅", value)
         val len = spinner.adapter.count
         (0 until len).forEach {
-            Log.d(spinner.getItemAtPosition(it).toString(), value)
             if(spinner.getItemAtPosition(it).toString() == value)
                 spinner.setSelection(it)
         }
@@ -139,7 +146,7 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
         val inputProfile = getInputProfile()
 
         if(Store.jwt != null) {
-            profileService.updateProfile(Store.jwt!!, null, inputProfile)
+            profileService.updateProfile(Store.jwt!!,  getFormProfile(inputProfile))
                 .enqueue(object : retrofit2.Callback<Profile> {
                     override fun onResponse(call: Call<Profile>, response: Response<Profile>) {
                         if(response.isSuccessful) {
@@ -163,7 +170,7 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
         return Profile(
             binding.profileUpdateNicknameInput.text.toString(),
             Integer.parseInt(binding.profileUpdateAgeInput.selectedItem.toString()),
-            if(binding.profileUpdateMale.isChecked) "남성" else "여성",
+            if (binding.profileUpdateMale.isChecked) "남성" else "여성",
             binding.profileUpdateCollegeInput.selectedItem.toString(),
             binding.profileUpdateMajorInput.toString(),
             binding.profileUpdateRegionInput.selectedItem.toString(),
@@ -173,6 +180,22 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
             binding.profileUpdateIntroductionInput.text.toString(),
             arrayListOf(),
             false
+        )
+    }
+
+    private fun getFormImage(image: File?): MultipartBody.Part {
+        val file = RequestBody.create(MultipartBody.FORM, "")
+        val body = MultipartBody.Part.createFormData("image", "", file)
+        return body
+    }
+
+    private fun getFormProfile(profile: Profile): MultipartBody.Part {
+        val str = Gson().toJson(profile)
+        Log.d("json parsing", str)
+
+        return MultipartBody.Part.createFormData(
+            "request",
+            str
         )
     }
 }

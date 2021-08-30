@@ -1,5 +1,7 @@
 package org.inu.universe.model.retrofit
 
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import org.inu.universe.global.Profile
 import retrofit2.Call
 import retrofit2.http.*
@@ -19,12 +21,12 @@ interface ProfileService {
         @Path("profileId") profileId: String
     ) : Call<Profile>
 
-    @FormUrlEncoded
     @Headers("Accept: application/json", "Content-type: application/json")
+    @Multipart
     @PATCH("profile")
     fun updateProfile(
         @Header("Authorization") token: String,
-        @Field("image") image: File?,
-        @Field("request") request: Profile
+        @Part image: MultipartBody.Part?,
+        @Part request: MultipartBody.Part
     ) : Call<Profile>
 }

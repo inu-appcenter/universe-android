@@ -17,15 +17,13 @@ import org.inu.universe.databinding.FragmentMainBinding
 import org.inu.universe.feature.initializing_profile.InitializingProfileActivity
 import org.inu.universe.global.MyApplication
 import org.inu.universe.global.Store
-import org.inu.universe.model.retrofit.AccountIds
-import org.inu.universe.model.retrofit.AccountService
-import org.inu.universe.model.retrofit.RetrofitBuilder
-import retrofit2.Call
-import retrofit2.Response
+import org.inu.universe.model.retrofit.*
+import retrofit2.*
 
 class MainFragment : Fragment() {
     private lateinit var fragmentMainBinding: FragmentMainBinding
     private val viewModel: MainViewModel by viewModels()
+    private lateinit var profiles: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,12 +32,8 @@ class MainFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_main, container, false)
 
-        val profiles = view.findViewById<RecyclerView>(R.id.main_profiles)
-        profiles?.adapter = ProfilesAdapter(
-            arrayListOf(ProfilesAdapter.MainProfileInfo(""), ProfilesAdapter.MainProfileInfo(""),
-                ProfilesAdapter.MainProfileInfo(""), ProfilesAdapter.MainProfileInfo("")
-            )
-        )
+        profiles = view.findViewById(R.id.main_profiles)
+        profiles.adapter = ProfilesAdapter(arrayListOf())
 
         val snapHelper = LinearSnapHelper()
         snapHelper.attachToRecyclerView(profiles)
@@ -57,5 +51,32 @@ class MainFragment : Fragment() {
         viewModel.shouldStartActivity.observe(this as LifecycleOwner, Observer {
             startActivity(it)
         })
+
+        getRecommendation()
+    }
+
+    private fun getRecommendation() {
+        val service = RetrofitBuilder().build().create(RecommendationService::class.java)
+        service.getRecommendation(Store.jwt!!)
+            .enqueue(object: Callback<List<RecommendationResponse>> {
+                override fun onResponse(
+                    call: Call<List<RecommendationResponse>>,
+                    response: Response<List<RecommendationResponse>>
+                ) {
+                    if(response.isSuccessful) {
+                        profiles.adapter = ProfilesAdapter(response.body()!!)
+
+                        Log.d("오늘의 유니", "성공!!")
+                    }
+                    else {
+                        Log.e("오늘의 유니", response.code().toString())
+                    }
+                }
+
+                override fun onFailure(call: Call<List<RecommendationResponse>>, t: Throwable) {
+                    Log.e("오늘의 유니", "onFailure")
+                    t.printStackTrace()
+                }
+            })
     }
 }

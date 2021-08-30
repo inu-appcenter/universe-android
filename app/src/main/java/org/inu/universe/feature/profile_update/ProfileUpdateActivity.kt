@@ -1,10 +1,13 @@
 package org.inu.universe.feature.profile_update
 
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.AdapterView
@@ -15,6 +18,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.app.ActivityCompat
 import androidx.core.view.forEach
 import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
@@ -36,6 +40,7 @@ import retrofit2.Call
 import retrofit2.Response
 import java.io.File
 import java.lang.Exception
+import java.util.jar.Manifest
 import javax.security.auth.callback.Callback
 
 class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListener {
@@ -138,7 +143,17 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
     }
 
     override fun openCamera(dialog: PhotoDialog) {
-        // TODO("Not yet implemented")
+        if(checkSelfPermission(android.Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+            Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { intent ->
+                intent.resolveActivity(packageManager)?.also {
+                    resultLauncher.launch(intent)
+                }
+            }
+        }
+        else
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
+
+
     }
 
     fun onFinishClick(view: View) {

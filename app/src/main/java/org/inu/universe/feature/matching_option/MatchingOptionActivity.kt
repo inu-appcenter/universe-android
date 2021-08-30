@@ -2,8 +2,10 @@ package org.inu.universe.feature.matching_option
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import org.inu.universe.R
 import org.inu.universe.databinding.ActivityInitializingProfileBinding
 import org.inu.universe.databinding.ActivityMatchingOptionBinding
@@ -18,5 +20,9 @@ class MatchingOptionActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_matching_option)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
+
+        viewModel.shouldFinish.observe(this, Observer {
+            finish()
+        })
     }
 }

@@ -39,7 +39,8 @@
             app:layout_constraintBottom_toBottomOf="@+id/profile_setting_tv"
             app:layout_constraintTop_toTopOf="@+id/profile_setting_tv"
             android:src="@drawable/ic_btn_undo"
-            app:tint="#666666"/>
+            app:tint="#666666"
+            android:onClick="@{()->viewModel.onClickUndo()}"/>
 
         <!--body-->
 

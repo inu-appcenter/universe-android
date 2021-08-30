@@ -146,7 +146,7 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
         val inputProfile = getInputProfile()
 
         if(Store.jwt != null) {
-            profileService.updateProfile(Store.jwt!!,  getFormProfile(inputProfile))
+            profileService.updateProfile(Store.jwt!!, getFormImage(null), getFormProfile(inputProfile))
                 .enqueue(object : retrofit2.Callback<Profile> {
                     override fun onResponse(call: Call<Profile>, response: Response<Profile>) {
                         if(response.isSuccessful) {

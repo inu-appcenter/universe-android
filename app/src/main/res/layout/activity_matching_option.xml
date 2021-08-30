@@ -81,39 +81,55 @@
             app:layout_constraintStart_toStartOf="@+id/local_tv"
             app:layout_constraintTop_toBottomOf="@+id/local_tv" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/woman_btn"
-            android:layout_width="80dp"
+        <com.nex3z.togglebuttongroup.SingleSelectToggleGroup
+            android:id="@+id/group_choices"
+            android:layout_width="0dp"
             android:layout_height="40dp"
-            android:background="@drawable/click_change_color_btn"
-            android:text="여성"
-            android:textColor="#999999"
-            app:layout_constraintTop_toTopOf="@+id/gender_tv"
+            app:tbgChildSpacing="auto"
+            app:tbgRowSpacing="8dp"
             app:layout_constraintBottom_toBottomOf="@+id/gender_tv"
-            app:layout_constraintStart_toStartOf="@+id/local_Spinner" />
+            app:layout_constraintStart_toEndOf="@+id/gender_tv"
+            app:layout_constraintTop_toTopOf="@+id/gender_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="10dp"
+            app:tbgCheckedButton="@+id/woman_btn"
+            tools:ignore="MissingConstraints">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/man_btn"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:background="@drawable/click_change_color_btn"
-            android:text="남성"
-            android:textColor="#999999"
-            app:layout_constraintBottom_toBottomOf="@+id/woman_btn"
-            app:layout_constraintTop_toTopOf="@+id/woman_btn"
-            app:layout_constraintEnd_toStartOf="@+id/unrelevance_btn"
-            app:layout_constraintStart_toEndOf="@+id/woman_btn" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/unrelevance_btn"
-            android:layout_width="80dp"
-            android:layout_height="40dp"
-            android:background="@drawable/click_change_color_btn"
-            android:text="무관"
-            android:textColor="#999999"
-            app:layout_constraintTop_toTopOf="@id/man_btn"
-            app:layout_constraintBottom_toBottomOf="@+id/man_btn"
-            app:layout_constraintEnd_toEndOf="@+id/local_Spinner" />
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/woman_btn"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="남성"
+                app:tbgMarkerColor="#4FDAE2"
+
+                />
+
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/man_btn"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="여성"
+                app:tbgMarkerColor="#4FDAE2" />
+
+            <com.nex3z.togglebuttongroup.button.LabelToggle
+                android:id="@+id/unrelevance_btn"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="무관"
+                app:tbgMarkerColor="#4FDAE2" />
+
+            <!--...-->
+
+        </com.nex3z.togglebuttongroup.SingleSelectToggleGroup>
 
         <TextView
             android:id="@+id/age_tv"

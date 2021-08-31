@@ -27,6 +27,6 @@ interface ProfileService {
     fun updateProfile(
         @Header("Authorization") token: String,
         @Part image: MultipartBody.Part?,
-        @Part request: MultipartBody.Part
+        @Part("request") request: RequestBody
     ) : Call<Profile>
 }

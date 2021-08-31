@@ -25,9 +25,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
-import okhttp3.MediaType
-import okhttp3.MultipartBody
-import okhttp3.RequestBody
+import okhttp3.*
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.inu.universe.R
 import org.inu.universe.databinding.ActivityProfileUpdateBinding
 import org.inu.universe.feature.login.LoginActivity
@@ -36,9 +36,12 @@ import org.inu.universe.global.Profile
 import org.inu.universe.global.Store
 import org.inu.universe.model.retrofit.ProfileService
 import org.inu.universe.model.retrofit.RetrofitBuilder
+import org.json.JSONArray
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Response
 import java.io.File
+import java.io.IOException
 import java.lang.Exception
 import java.util.jar.Manifest
 import javax.security.auth.callback.Callback
@@ -151,17 +154,65 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
             }
         }
         else
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA, android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
-
+            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.CAMERA,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
 
     }
 
+
+
     fun onFinishClick(view: View) {
+        val url = RetrofitBuilder().BASE_URL + "/profile"
+        val client = OkHttpClient()
+
+        val json = JSONObject()
+        json.put("nickName", "관리자1")
+        json.put("age", 24)
+        json.put("gender", "남성")
+        json.put("college", "정보기술대학")
+        json.put("major", "컴퓨터공학부")
+        json.put("region", "인천")
+        json.put("height", "175")
+        json.put("bodyType", "보통")
+        json.put("mbti", "INFJ")
+        json.put("introduction", "소개소개")
+        json.put("hashTagList", JSONArray())
+        json.put("profilePrivate", false)
+
+        val body = MultipartBody.Builder()
+            .setType(MultipartBody.FORM)
+            .addFormDataPart("image", "text", "".toRequestBody("image/*".toMediaTypeOrNull()))
+            .addFormDataPart("request", "", json.toString()
+                .toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
+            .build()
+
+        val request = Request.Builder()
+            .header("Content-Type", "application/json")
+            .addHeader("Content-Disposition", "form-data")
+            .addHeader("Authorization", Store.jwt!!)
+            .url(url)
+            .patch(body)
+            .build()
+
+        val response = client.newCall(request).enqueue(object : okhttp3.Callback {
+            override fun onFailure(call: okhttp3.Call, e: IOException) {
+                Log.e("업데이트", "onFailure")
+            }
+
+            override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
+                Thread {
+                    val str = response.body?.string()
+                    Log.d("업데이트", str.toString())
+                }.start()
+            }
+        })
+        /*
         val profileService = RetrofitBuilder().build().create(ProfileService::class.java)
         val inputProfile = getInputProfile()
 
         if(Store.jwt != null) {
-            profileService.updateProfile(Store.jwt!!, getFormImage(null), getFormProfile(inputProfile))
+            profileService.updateProfile(Store.jwt!!, getFormImage(null), RequestBody.create(
+                MediaType.parse("json/application"), "<request-value>"))
                 .enqueue(object : retrofit2.Callback<Profile> {
                     override fun onResponse(call: Call<Profile>, response: Response<Profile>) {
                         if(response.isSuccessful) {
@@ -177,8 +228,7 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
                         t.printStackTrace()
                     }
                 })
-
-        }
+        }*/
     }
 
     private fun getInputProfile() : Profile {

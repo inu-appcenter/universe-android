@@ -14,13 +14,11 @@ import org.inu.universe.feature.main.MainActivity
 import org.inu.universe.feature.signup.SignupActivity
 import org.inu.universe.global.Store
 import org.inu.universe.model.retrofit.LoginRequest
+import org.inu.universe.model.retrofit.LoginService
 import org.inu.universe.model.retrofit.RetrofitBuilder
-import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

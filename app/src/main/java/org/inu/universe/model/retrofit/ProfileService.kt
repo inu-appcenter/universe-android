@@ -20,13 +20,4 @@ interface ProfileService {
         @Header("Authorization") token: String,
         @Path("profileId") profileId: String
     ) : Call<Profile>
-
-    @Headers("Accept: application/json", "Content-type: application/json")
-    @Multipart
-    @PATCH("profile")
-    fun updateProfile(
-        @Header("Authorization") token: String,
-        @Part image: MultipartBody.Part?,
-        @Part("request") request: RequestBody
-    ) : Call<Profile>
 }

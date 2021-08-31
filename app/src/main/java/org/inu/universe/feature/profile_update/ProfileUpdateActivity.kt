@@ -10,10 +10,7 @@ import android.os.Looper
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.TextView
+import android.widget.*
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
@@ -159,30 +156,13 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
 
     }
 
-
-
-    fun onFinishClick(view: View) {
+    private fun onFinishClick(view: View) {
         val url = RetrofitBuilder().BASE_URL + "/profile"
         val client = OkHttpClient()
-
-        val json = JSONObject()
-        json.put("nickName", "관리자1")
-        json.put("age", 24)
-        json.put("gender", "남성")
-        json.put("college", "정보기술대학")
-        json.put("major", "컴퓨터공학부")
-        json.put("region", "인천")
-        json.put("height", "175")
-        json.put("bodyType", "보통")
-        json.put("mbti", "INFJ")
-        json.put("introduction", "소개소개")
-        json.put("hashTagList", JSONArray())
-        json.put("profilePrivate", false)
-
         val body = MultipartBody.Builder()
             .setType(MultipartBody.FORM)
             .addFormDataPart("image", "text", "".toRequestBody("image/*".toMediaTypeOrNull()))
-            .addFormDataPart("request", "", json.toString()
+            .addFormDataPart("request", "", Gson().toJson(getInputProfile())
                 .toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull()))
             .build()
 
@@ -194,41 +174,20 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
             .patch(body)
             .build()
 
-        val response = client.newCall(request).enqueue(object : okhttp3.Callback {
+        client.newCall(request).enqueue(object : okhttp3.Callback {
             override fun onFailure(call: okhttp3.Call, e: IOException) {
                 Log.e("업데이트", "onFailure")
+                Toast.makeText(this@ProfileUpdateActivity, "네트워크 연결에 실패했습니다. 왜지...?", Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                 Thread {
                     val str = response.body?.string()
                     Log.d("업데이트", str.toString())
+                    finish()
                 }.start()
             }
         })
-        /*
-        val profileService = RetrofitBuilder().build().create(ProfileService::class.java)
-        val inputProfile = getInputProfile()
-
-        if(Store.jwt != null) {
-            profileService.updateProfile(Store.jwt!!, getFormImage(null), RequestBody.create(
-                MediaType.parse("json/application"), "<request-value>"))
-                .enqueue(object : retrofit2.Callback<Profile> {
-                    override fun onResponse(call: Call<Profile>, response: Response<Profile>) {
-                        if(response.isSuccessful) {
-                            Log.d("프로필 업데이트", response.code().toString())
-                        }
-                        else {
-                            Log.e("프로필 업데이트", response.code().toString())
-                        }
-                    }
-
-                    override fun onFailure(call: Call<Profile>, t: Throwable) {
-                        Log.e("프로필 업데이트", "onFailure")
-                        t.printStackTrace()
-                    }
-                })
-        }*/
     }
 
     private fun getInputProfile() : Profile {
@@ -237,7 +196,7 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
             Integer.parseInt(binding.profileUpdateAgeInput.selectedItem.toString()),
             if (binding.profileUpdateMale.isChecked) "남성" else "여성",
             binding.profileUpdateCollegeInput.selectedItem.toString(),
-            binding.profileUpdateMajorInput.toString(),
+            binding.profileUpdateMajorInput.selectedItem.toString(),
             binding.profileUpdateRegionInput.selectedItem.toString(),
             0.toString(),
             binding.profileUpdateBodyTypeInput.selectedItem.toString(),
@@ -252,15 +211,5 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
         val file = RequestBody.create(MultipartBody.FORM, "")
         val body = MultipartBody.Part.createFormData("image", "", file)
         return body
-    }
-
-    private fun getFormProfile(profile: Profile): MultipartBody.Part {
-        val str = Gson().toJson(profile)
-        Log.d("json parsing", str)
-
-        return MultipartBody.Part.createFormData(
-            "request",
-            str
-        )
     }
 }

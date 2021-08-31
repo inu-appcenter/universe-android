@@ -8,9 +8,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
 import org.inu.universe.R
 import org.inu.universe.databinding.FragmentMyProfileBinding
 import org.inu.universe.feature.profile_update.ProfileUpdateActivity
+import org.inu.universe.global.Store
+import java.util.Observer
 
 class MyProfileFragment : Fragment() {
     private lateinit var fragmentMyProfileBinding: FragmentMyProfileBinding
@@ -39,5 +42,10 @@ class MyProfileFragment : Fragment() {
         binding.viewModel = viewModel
 
         viewModel.loadProfile()
+
+
+        Store.shouldMyProfileUpdate.observe(this as LifecycleOwner, androidx.lifecycle.Observer {
+            viewModel.loadProfile()
+        })
     }
 }

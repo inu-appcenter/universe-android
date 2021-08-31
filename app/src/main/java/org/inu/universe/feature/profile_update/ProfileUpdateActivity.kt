@@ -183,6 +183,7 @@ class ProfileUpdateActivity : AppCompatActivity(), PhotoDialog.NotifyDialogListe
             override fun onResponse(call: okhttp3.Call, response: okhttp3.Response) {
                 Thread {
                     val str = response.body?.string()
+                    Store.shouldMyProfileUpdate.postValue(true)
                     Log.d("업데이트", str.toString())
                     finish()
                 }.start()

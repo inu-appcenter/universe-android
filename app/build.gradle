@@ -72,4 +72,7 @@ dependencies {
 
     // toggleButton
     implementation 'com.nex3z:toggle-button-group:1.2.3'
+
+    // rangeSeekBar
+    implementation 'com.crystal:crystalrangeseekbar:1.1.3'
 }

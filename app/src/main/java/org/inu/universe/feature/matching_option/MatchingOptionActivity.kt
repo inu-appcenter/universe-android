@@ -21,6 +21,11 @@ class MatchingOptionActivity : AppCompatActivity() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
+        //나이범위
+        binding.rangeSeekbarAge.setOnRangeSeekbarChangeListener{ minValue, maxValue ->
+            binding.rangeAge.setText("$minValue~$maxValue")
+        }
+
         viewModel.shouldFinish.observe(this, Observer {
             finish()
         })

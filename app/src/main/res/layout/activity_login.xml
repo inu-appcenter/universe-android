@@ -58,20 +58,21 @@
             app:layout_constraintStart_toStartOf="parent"
             android:src="@drawable/loginbackgroundbottom" />
 
+        <!-- 이메일 필드 -->
         <EditText
             android:id="@+id/email_et"
-            android:hint="이메일"
-            android:textSize="15sp"
-            android:textColorHint="#999999"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/email_et"
+            android:hint="이메일"
             android:paddingStart="15dp"
+            android:text="@={viewModel.email}"
+            android:textColorHint="#999999"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="@+id/universe_Bottom_img"
-            app:layout_constraintTop_toTopOf="@+id/universe_Bottom_img"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:background="@drawable/email_et" />
+            app:layout_constraintTop_toTopOf="@+id/universe_Bottom_img" />
 
         <TextView
             android:layout_width="0dp"
@@ -84,7 +85,7 @@
             android:textSize="12sp"
             android:textColor="#666666"/>
 
-
+        <!-- 비밀번호 필드 -->
         <EditText
             android:id="@+id/password_et"
             android:hint="비밀번호"
@@ -94,6 +95,7 @@
             android:layout_height="45dp"
             android:paddingStart="15dp"
             android:inputType="textPassword"
+            android:text="@={viewModel.password}"
             app:layout_constraintStart_toStartOf="@+id/universe_Bottom_img"
             app:layout_constraintTop_toBottomOf="@+id/email_et"
             android:layout_marginStart="50dp"
@@ -101,6 +103,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/email_et" />
 
+        <!-- 로그인 버튼 -->
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/login_btn"
             android:text="로그인"
@@ -115,8 +118,8 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:layout_marginTop="20dp"
-            android:background="@drawable/loginbutton"/>
-
+            android:background="@drawable/loginbutton"
+            android:onClick="@{() -> viewModel.login()}"/>
 
         <TextView
             android:id="@+id/loginSignup_tv"
@@ -125,11 +128,9 @@
             android:text="회원가입"
             android:textColor="#808080"
             android:layout_marginTop="10dp"
+            android:onClick="@{() -> viewModel.signUp()}"
             app:layout_constraintEnd_toEndOf="@+id/login_btn"
             app:layout_constraintTop_toBottomOf="@+id/login_btn" />
-
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
 

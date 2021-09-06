@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // TODO 여기보다 먼저 있어야 함 ㅠㅡㅠ 안그럼 LoginViewModel에서 못 씀 ㅠㅠ
         MyApplication.context = this
         setTab()
         verifyAndStartActivity()

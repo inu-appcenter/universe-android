@@ -22,78 +22,34 @@ import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
-    private val viewModel: LoginViewModel by viewModels()
-    private val TAG = "로그인"
 
-    var loginService = RetrofitBuilder().build().create(LoginService::class.java)
+    private val myViewModel: LoginViewModel by viewModels()
 
-    var token : String = null.toString()
-
+    /**
+     * 액티비티 실행 순서상 LoginViewModel에서 ApplicationContext를 쓸 수 없음:
+     * SplashActivity -> LoginActivity(context 사용) -> MainActivity(context 설정)
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         binding.lifecycleOwner = this
-        binding.viewModel = viewModel
+        binding.viewModel = myViewModel
 
-        binding.loginBtn.setOnClickListener {
-            login()
+        //        with(binding) {
+        //            lifecycleOwner = this@LoginActivity
+        //            viewModel = myViewModel
+        //        }
+
+        myViewModel.openMainActivityEvent.observe(this) {
+            // 뷰모델에서 openMainActivityEvent 에 새로운 이벤트가 발생하면
+            // 아래 코드를 실행하겠다!
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
-        binding.loginSignupTv.setOnClickListener {
-            val intent = Intent(this, SignupActivity::class.java)
-            startActivity(intent)
+        myViewModel.openSignUpActivityEvent.observe(this) {
+            startActivity(Intent(this, SignupActivity::class.java))
+            finish()
         }
     }
-
-    fun login() {
-        val inputEmail = binding.emailEt.text.toString() + "@inu.ac.kr"
-        val inputPassword = binding.passwordEt.text.toString()
-
-        val req = LoginRequest("inuappcenter@inu.ac.kr", "universe")
-        //val req = LoginRequest(inputEmail, inputPassword)
-
-        loginService.requestLogin(req).enqueue(object : Callback<Unit> {
-            override fun onResponse(call: Call<Unit>, response: Response<Unit>) {
-                if (response.isSuccessful){
-                    Store.jwt = "Bearer " + response.headers().get("accessToken")
-                    if(Store.jwt != null) {
-                        Log.d(TAG, response.code().toString())
-                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                } else {
-                    Toast.makeText(this@LoginActivity, "실패", Toast.LENGTH_SHORT).show()
-                    Log.e(TAG, response.code().toString())
-                }
-            }
-
-            override fun onFailure(call: Call<Unit>, t: Throwable) {
-                Log.e(TAG, "onFailure")
-                t.printStackTrace()
-                Toast.makeText(this@LoginActivity, "로그인 실패!", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-    fun getToken() {
-        loginService.getToken(token).enqueue(object : Callback<ResponseBody> {
-            override fun onResponse(
-                call: Call<ResponseBody>,
-                response: Response<ResponseBody>
-            ) {
-                if(response.isSuccessful) {
-                }
-                else {
-                    Log.e("실패, response code : ", response.code().toString())
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, "Error", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-
 }

@@ -5,4 +5,5 @@
     <string name="cancel">취소</string>
     <string name="exit_modal_title">채팅방 나가기</string>
     <string name="exit_modal_description">채팅방을 나가시겠습니까?\n채팅방은 다시 복구되지 않습니다.</string>
+    <string name="button_next">다음</string>
 </resources>
